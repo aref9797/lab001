@@ -1,0 +1,212 @@
+@font-face {
+    font-family:'bnazanin';
+    src:local('B Nazanin'),
+        local('BNazanin');
+    src:url("#{resource['css:fonts/BNazanin.eot']}"),
+        url("#{resource['css:fonts/BNazanin.eot']}?#iefix") format('embedded-opentype'),
+        url("#{resource['css:fonts/BNazanin.woff']}") format('woff'),
+        url("#{resource['css:fonts/BNazanin.ttf']}") format('truetype');
+}
+@font-face {
+    font-family:'btitr';
+    src:local('B Titr'),
+        local('BTitr');
+    src:url("#{resource['css:fonts/BTitrBold.eot']}"),
+        url("#{resource['css:fonts/BTitrBold.eot']}?#iefix") format('embedded-opentype'),
+        url("#{resource['css:fonts/BTitrBold.woff']}") format('woff'),
+        url("#{resource['css:fonts/BTitrBold.ttf']}") format('truetype');
+}
+@font-face {
+    font-family:'bkoodak';
+    src:local('B Koodak'),
+        local('BKoodak');
+    src:url("#{resource['css:fonts/BKoodakBold.eot']}"),
+        url("#{resource['css:fonts/BKoodakBold.eot']}?#iefix") format('embedded-opentype'),
+        url("#{resource['css:fonts/BKoodakBold.woff']}") format('woff'),
+        url("#{resource['css:fonts/BKoodakBold.ttf']}") format('truetype');
+}
+
+
+.containerbody{
+	background: rgba(242, 242, 242, 1);
+}
+
+.body{
+	background-image: url("#{resource['images:site/background.jpg']}") ;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    min-height: 100%;
+}
+
+div.center_grid{
+	
+	background-color: rgba(242, 242, 242, 1);
+   
+    border-style: solid;
+    border-color: #79AFCC;
+    border-width: 2px;
+    border-radius: 10px;
+	padding-bottom: 30px;
+	padding-top: 30px;
+	
+}
+div.center{
+	text-align: center;
+}
+.img{
+	
+	width: 100px;
+	height: 100px;
+	
+}
+b.outlabel{
+	font-size: 20px;
+    font-family: bkoodak;
+    margin-left: 10px;	
+    margin-right: 10px;
+   
+	
+}
+.select .ui-button{
+	width:auto  !important;
+	height:35px  !important;
+	font:bkoodak !important;
+	font-size:10px !important;
+	color:#ffffff!important;
+	background: #0000ff!important;
+}
+.select .ui-button{
+	
+	background: #ff0000 !important;
+}
+.ui-submit
+{
+    text-align: center !important;
+    text-decoration: none !important;
+    display: inline-block !important;
+    font-size: 25px !important;
+    -webkit-transition-duration: 0.4s !important !important; /* Safari */
+    transition-duration: 0.4s !important;
+    cursor: pointer !important;
+    background-color: white !important; 
+    color: black !important; 
+    border: 2px solid #008CBA !important;
+    font-family:bnazanin !important; 
+    background: none !important;        
+    border-radius: 8px !important;
+}
+
+.ui-submit:hover{
+	background-color: #008CBA !important;
+    color: white !important;
+}
+
+
+a.link{
+	font-family: bnazanin;
+	font-size: medium;
+	color: #0086ce;
+}
+
+a.link:hover{
+	
+	color: #ca0005;
+	
+	text-decoration: none;
+	
+	border-color: #ca0005;
+	border-style: ridge;
+	border-width:thin; 
+}
+
+.email-icon{
+	width: 20px;
+	height: 20px;
+	 visibility: hidden;
+}
+
+
+span .short{
+font-weight:bold;
+color:#FF0000;
+font-size:larger;
+}
+span .weak{
+font-weight:bold;
+color:orange;
+font-size:larger;
+}
+span .good{
+font-weight:bold;
+color:#2D98F3;
+font-size:larger;
+}
+span .strong{
+font-weight:bold;
+color: limegreen;
+font-size:larger;
+}
+
+
+b.header{
+	font-family: btitr;
+	font-size: 30px;
+	text-align: center;
+}
+
+
+div.blue{
+	background-color: #7DCCCC;
+    height: 1px;
+    margin-top: 20px;
+}
+
+.ui-paginator {
+	text-align: center ! important;
+	color: black !important;
+	background: #E8E8E8 !important;
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+.griedpanel{
+	
+	height: 500px;
+	 box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    
+	
+}
+img.gried{
+	
+	width: 100%;
+	height: 300px;
+}
+
+div.datapanel{
+	height: 200px;
+	padding:20px;
+	text-align: right;
+}
+
+div.datapanel b.bold{
+    font-family:btitr;
+    font-size: 15px;
+}
+
+div.datapanel b.data{
+    font-family:bkoodak;
+    font-size: 15px;
+    color: #3B3F44;
+}
+
+.datagied{
+	 box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.inputlabel{
+	
+}
+
+b.stnumber{
+	font-family:bnazanin;
+	font-size: 13px;
+}
+

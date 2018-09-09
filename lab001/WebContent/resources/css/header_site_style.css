@@ -1,0 +1,121 @@
+ @font-face {
+      font-family: Titrbold;
+      src: url('http://fonts.codearena.ir/b/titrbold/titrbold.eot');
+      src: url('http://fonts.codearena.ir/b/titrbold/titrbold.eot?#iefix') format('embedded-opentype'),
+           url('http://fonts.codearena.ir/b/titrbold/titrbold.woff') format('woff'),
+           url('http://fonts.codearena.ir/b/titrbold/titrbold.ttf') format('truetype');
+      font-weight: normal;
+    }  
+/* font-Titrtgebold */
+  @font-face {
+      font-family: Titrtgebold;
+      src: url('http://fonts.codearena.ir/b/titrtgebold/titrtgebold.eot');
+      src: url('http://fonts.codearena.ir/b/titrtgebold/titrtgebold.eot?#iefix') format('embedded-opentype'),
+           url('http://fonts.codearena.ir/b/titrtgebold/titrtgebold.woff') format('woff'),
+           url('http://fonts.codearena.ir/b/titrtgebold/titrtgebold.ttf') format('truetype');
+      font-weight: normal;
+    }
+div.menu{
+    background:rgba(52, 85, 203 ,0.5);
+	 border-radius: 10px;
+	 padding-top: 30px;
+	 padding-bottom: 10px;
+}
+b.title{
+	color: white;
+	font-family: Titrtgebold;
+	font-size: 25px;
+}
+
+ul.menupanel{
+	
+}
+ul.menupanel li{
+	
+}
+ul.menupanel li a{
+	color: white;
+	font-family:Titrbold;
+	font-size:17px;
+	padding:10px 20px;
+   
+}
+ul.menupanel li a:hover {
+	background:none;
+	border-style:solid;
+	border-width: 2px;
+    border-radius: 10px;
+    border-color: rgba(201, 204, 24, 1);
+  	color: rgba(201, 204, 24, 1);
+}
+
+div.nav_header a{
+    color: rgba(255, 255, 255, 1);
+    font-size: large;
+     padding-left: 40px;
+    padding-right: 40px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    text-decoration: none;
+}
+
+li.singin{
+	
+}
+li.singin a{
+	color: white;
+	font-family:Titrbold;
+	font-size:17px;
+	padding:10px 20px;
+    background-color: #539F2D;
+    border-radius: 5px;
+    border:#539F2D 2px solid;
+    margin-left: 5px;
+}
+li.singin a:hover{
+    background:none;
+    border:#539F2D 2px solid;
+}
+
+
+
+li.singup{
+	
+}
+li.singup a{
+	color: white;
+	font-family:Titrbold;
+	font-size:17px;
+	padding:10px 20px;
+	background-color: #C41826;
+	border-radius: 5px;
+    border:#C41826 2px solid;
+}
+li.singup a:hover{
+	background:none;
+    border:#C41826 2px solid;
+}
+
+
+a:active{
+	background: none;
+	background-color: #FFD700;
+	border: none;
+}
+
+div.nav_panel{
+    float: left;
+    background-color: rgba(173, 0, 0, 1);
+    padding-top: 10px;
+    padding-bottom: 10px;
+
+}
+div.nav_panel a{
+      color: rgba(255, 255, 255, 1);
+    font-size: large;
+     padding-left: 40px;
+    padding-right: 40px;
+    margin-bottom: 10px;
+    text-decoration: none;
+}
+

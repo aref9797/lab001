@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html dir="rtl" lang="en"
+     xmlns="http://www.w3.org/1999/xhtml"
+     xmlns:f="http://java.sun.com/jsf/core"
+     xmlns:h="http://java.sun.com/jsf/html"
+     xmlns:ui="http://java.sun.com/jsf/facelets"
+     xmlns:p="http://primefaces.org/ui" >
+
+	<h:head>
+		
+	    <title>  آزمایشگاه دانشگاه بناب</title>
+	    
+	    
+		<h:outputStylesheet library="css" name="bootstrap.rtl.css"  />
+		<h:outputStylesheet library="css" name="bootstrap.rtl.full.min.css"  />
+		<h:outputStylesheet library="css" name="bootstrap.rtl.min.css"  />
+		<h:outputStylesheet library="css" name="bootstrap.rtl.full.css"  />
+		<h:outputStylesheet library="css" name="header_site_style.css"  />
+ 		<h:outputStylesheet  library="css" name="footer_site_style.css"  />
+ 		<h:outputStylesheet library="css" name="site_style.css" /> 
+ 		
+ 		
+ 		
+     	<h:outputScript library="js" name="jquery.js" target="head"></h:outputScript>
+ 		<h:outputScript library="js" name="script.js" />
+	</h:head>
+	
+	<h:body class="body">
+		
+		
+ 		
+		  	<!-- Header -->
+        		
+            		
+            
+           
+
+			<!-- Contents -->
+            	<div class="container-fluid">
+            		<ui:include src="/templates/tiles/header.xhtml" />
+            	
+					<ui:include src="/templates/body.xhtml" />
+				</div>
+            
+    		<!-- Footer 
+            	
+        		<ui:include src="/templates/tiles/footer.xhtml" />
+           -->
+            	
+    
+    </h:body>
+</html>

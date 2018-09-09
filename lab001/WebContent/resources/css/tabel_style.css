@@ -1,0 +1,159 @@
+@font-face {
+      font-family: Mitra;
+      src: url('http://fonts.codearena.ir/b/mitra/mitra.eot');
+      src: url('http://fonts.codearena.ir/b/mitra/mitra.eot?#iefix') format('embedded-opentype'),
+           url('http://fonts.codearena.ir/b/mitra/mitra.woff') format('woff'),
+           url('http://fonts.codearena.ir/b/mitra/mitra.ttf') format('truetype');
+      font-weight: normal;
+    }
+
+  @font-face {
+      font-family: Parastoo;
+      src: url('http://fonts.codearena.ir/rastikerdar/parastoo/parastoo.eot');
+      src: url('http://fonts.codearena.ir/rastikerdar/parastoo/parastoo.eot?#iefix') format('embedded-opentype'),
+           url('http://fonts.codearena.ir/rastikerdar/parastoo/parastoo.woff') format('woff'),
+           url('http://fonts.codearena.ir/rastikerdar/parastoo/parastoo.ttf') format('truetype');
+      font-weight: normal;
+    }
+     @font-face {
+      font-family: Gandom;
+      src: url('http://fonts.codearena.ir/rastikerdar/gandom/gandom.eot');
+      src: url('http://fonts.codearena.ir/rastikerdar/gandom/gandom.eot?#iefix') format('embedded-opentype'),
+           url('http://fonts.codearena.ir/rastikerdar/gandom/gandom.woff') format('woff'),
+           url('http://fonts.codearena.ir/rastikerdar/gandom/gandom.ttf') format('truetype');
+      font-weight: normal;
+    }
+
+.ui-datatable {
+   margin: 25px auto;
+  border-collapse: collapse !important;
+  border: 1px solid #eee !important;
+  border-bottom: 2px solid #00cccc !important;
+  border-radius: 30px !important;
+ 
+}
+
+.ui-datatable thead th {
+    background: none !important;
+    font-family:Mitra !important;
+    font-size:15px !important;
+    text-shadow: none !important;
+    padding: 20px 0px  !important;
+    background: #2b253a!important;
+    color: white !important;
+    text-transform: none !important;
+    border: 1px solid #eee !important;
+    padding: 12px 35px !important;
+    border-collapse: collapse!important;
+    &.last {
+      border-right: none !important;
+    }
+}
+.ui-datatable  tr {
+	 color:#808080 !important;
+    border: 1px solid #eee !important;
+    border-bottom: 1px solid #8DE7ED !important;
+    padding: 12px 20px !important;
+    border-collapse: collapse !important;
+    background-color: white !important;
+    font-family: Parastoo !important;
+    font-size: 12px !important;
+   }
+ .ui-datatable  tr:hover {
+	background: #f4f4f4 !important;
+      
+      td {
+        color: #555 !important;
+      }
+}
+
+img.seen{
+	width:64px;
+	height:64px;
+   
+}
+
+
+img.edit{
+	width:50px;
+	height:50px;
+	
+	
+}
+
+
+img.delete{
+	width:40px;
+	height:40px;
+}
+
+
+img.chek{
+	width:40px;
+	height:40px;
+	
+}
+
+
+
+.ui-buttom-seen{
+       background-image: none !important;
+       background-color: #5780CC !important;
+       width:50% !important;
+       color: #FFFFFF !important;
+       padding: 5px 0px !important;
+       font-family:Gandom !important;
+       font-size: 15px !important;
+       
+}
+.ui-buttom-seen:hover{
+    background-color: #FFFFFF !important;
+    color: #5780CC !important;
+    border:#5780CC 2px solid !important;
+}
+.ui-buttom-edit{
+       background-image: none !important;
+       width:40% !important;
+       color: #FFFFFF !important;
+       padding: 5px 0px !important;
+       font-family:Gandom !important;
+       font-size: 12px !important;
+       background-image: url("#{resource['images:edit.png']}") !important;
+}
+.ui-buttom-edit:hover{
+    background-color: #FFFFFF !important;
+    color: #4DA82E !important;
+    border:#4DA82E 2px solid !important;
+}
+
+.ui-link-delete{
+       background-image: none !important;
+       background-color: #D61A36 !important;
+       width:40% !important;
+       color: #FFFFFF !important;
+       padding: 5px 0px !important;
+       font-family:Gandom !important;
+       font-size: 12px !important;
+       
+}
+.ui-buttom-delete:hover{
+    background-color: #FFFFFF !important;
+    color: #D61A36 !important;
+    border:#D61A36 2px solid !important;
+}
+
+.ui-buttom-call{
+     background-image: none !important;
+       background-color: #6A9ACC !important;
+       width:80% !important;
+       color: #FFFFFF !important;
+       padding: 5px 0px !important;
+       font-family:Gandom !important;
+       font-size: 16px !important;
+}
+
+.ui-buttom-call:hover{
+    background-color: #FFFFFF !important;
+    color: #6A9ACC !important;
+    border:#6A9ACC 2px solid !important;
+}

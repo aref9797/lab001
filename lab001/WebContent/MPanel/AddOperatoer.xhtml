@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<ui:composition template="../templates/Panel.xhtml"
+     xmlns="http://www.w3.org/1999/xhtml"
+     xmlns:f="http://java.sun.com/jsf/core"
+     xmlns:h="http://java.sun.com/jsf/html"
+     xmlns:ui="http://java.sun.com/jsf/facelets"
+     xmlns:p="http://primefaces.org/ui">
+     
+<ui:define name="content">
+	 <h:outputStylesheet library="css" name="Mpanel_style.css"></h:outputStylesheet>
+	 <h:outputStylesheet library="css" name="tabel_style.css"></h:outputStylesheet>
+	 
+	 <h:outputScript library="js" name="scroll.js"></h:outputScript>
+	
+	
+	 
+	<div id="scroll"> 
+	<h:form id="frmNew">
+	 <div class="row">
+	 	<div class="col-md-2"></div>
+	 	<div class="col-md-8">
+	 		<div class="box">
+	 			<div id="title">
+	 				<b>ایجاد مسئول آزمایشگاه</b>
+	 			</div>
+	 			<div class="row contant" >
+	 			
+		 				<div class="col-md-6" >
+		 					 <p:growl id="messages"  showDetail="true" life="7000"/>
+		 					 <br/>
+		 					 
+		 					<b>نام :</b>
+		 					<p:inputText styleClass="ui-input" rendered="#{!ExperimentMB.isEdit}" value="#{ExperimentMB.baseEntity.name}" required="true" requiredMessage="نام آزمایش نباید خالی باشد" />
+		 					<p:inputText  rendered="#{ExperimentMB.isEdit}"  value="#{ExperimentMB.baseEntity.name}" styleClass="ui-input" readonly="true"/>
+		 					<br/><br/>
+		 					<b>نام خانوادگی :</b>
+		 					<p:inputText styleClass="ui-input"  value="" required="true" requiredMessage="نام خانوادگی نباید خالی باشد" />
+		 					<br/><br/>
+		 					<b>نام کاربری :</b> 
+		 					<p:inputText styleClass="ui-input" value="#{ExperimentMB.baseEntity.price}" required="true" requiredMessage="قیمت آزمایش نباید خالی باشد"/>
+		 					<br/><br/>
+		 					<b>رمز عبور</b>
+		 					<p:password styleClass="ui-input" id="pass" value="#{UserMB.user.hpassword}"  validatorMessage="رمز عبور و تکرار رمز عبور باید یکسان باشد" required="true" requiredMessage="فیلد  رمز عبور نباید خالی باشد"/>
+		 					<br/><br/>
+		 					<b>ایمیل :</b>
+		 					<p:inputText styleClass="ui-input" id="email" size="50" value="" required="true" requiredMessage="فیلد ایمیل نباید خالی باشد">
+	       						<f:validateRegex pattern="^[_A-Za-z0-9-\+]+(\.[_A-Za-z0-9-]+)*@[A-Za-z0-9-]+(\.[A-Za-z0-9]+)*(\.[A-Za-z]{2,})$" />
+	       					</p:inputText>	
+		 					<br/><br/>
+		 					<b>تلغن تماس :</b>
+		 					<p:inputText styleClass="ui-input" value="" required="true" requiredMessage="شماره تماس نباید خالی باشد"/>
+		 				</div>
+		 				<div class="col-md-6 text-center" >
+		 					<br/><br/>
+		 					<div class="row">
+		 						<div class="-col-md-12 text-center">
+		 							 <p:commandButton styleClass="ui-buttom-submit" value="ثبت "  update=":frmDT:dtList  frmNew"  />
+		 						 </div>
+		 					</div>
+		 					<br/>
+		 					<div class="row">
+		 						<div class="-col-md-12 text-center">
+		 							<!--  <p:commandButton styleClass="ui-buttom-submit" value="جدید"   />	 -->
+		 						 </div>
+		 					</div>
+		 				</div>
+	 				
+	 			</div>
+	 		</div>
+	 		<br/><br/><br/>
+	 		
+	 	</div>
+	 </div>
+	 
+	 </h:form>
+	 
+	 <h:form id="frmDT">
+		 <div class="row">
+		 	<DIV class="col-md-12 text-center">
+		 		<p:dataTable id="dtList"  value="#{ExperimentMB.baseEntityList}" var="exp" reflow="true"> 
+					    
+					    <p:column headerText="نام">
+					    	<b></b>
+					    </p:column>
+					 
+					    <p:column headerText="نام خانوادگی">
+					    	<b></b>
+					    </p:column>
+					 	<p:column headerText="ام کاربری" >
+					    	<b></b>
+					    </p:column>
+					    
+					    <p:column headerText="ایمیل" >
+					    	<b></b>
+					    </p:column>
+					    
+					    <p:column headerText="تلغن تماس">
+					    	<b></b>
+					    </p:column>
+					 	
+					 	  <p:column headerText="عملیات" style="width: 15%">
+					    	
+					    	<p:commandLink  styleClass="" ajax="true" type="submit" >
+					    		<img class="delete" src="../resources/images/delete.png"/>
+					    		<p:confirm header="تائید حذف رکورد انتخابی" message="آیا از حذف رکورد انتخابی مطمئن هستید؟" icon="ui-icon-alert" />
+					    	</p:commandLink>
+					    </p:column>
+					 	
+				</p:dataTable>
+				
+				<p:confirmDialog global="true" showEffect="fade" hideEffect="fade" styleClass="">
+			        <p:commandButton value="بلی" type="button" styleClass="ui-confirmdialog-yes" icon="ui-icon-check" />
+			        <p:commandButton value="خیر" type="button" styleClass="ui-confirmdialog-no" icon="ui-icon-close" />
+		   		</p:confirmDialog>
+		   		
+		 	</DIV>
+		 </div>
+		
+		
+		</h:form>
+		</div>
+</ui:define>
+</ui:composition>

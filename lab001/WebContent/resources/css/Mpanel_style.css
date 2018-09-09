@@ -1,0 +1,178 @@
+@font-face {
+      font-family: Mitra;
+      src: url('http://fonts.codearena.ir/b/mitra/mitra.eot');
+      src: url('http://fonts.codearena.ir/b/mitra/mitra.eot?#iefix') format('embedded-opentype'),
+           url('http://fonts.codearena.ir/b/mitra/mitra.woff') format('woff'),
+           url('http://fonts.codearena.ir/b/mitra/mitra.ttf') format('truetype');
+      font-weight: normal;
+    }
+
+  @font-face {
+      font-family: Parastoo;
+      src: url('http://fonts.codearena.ir/rastikerdar/parastoo/parastoo.eot');
+      src: url('http://fonts.codearena.ir/rastikerdar/parastoo/parastoo.eot?#iefix') format('embedded-opentype'),
+           url('http://fonts.codearena.ir/rastikerdar/parastoo/parastoo.woff') format('woff'),
+           url('http://fonts.codearena.ir/rastikerdar/parastoo/parastoo.ttf') format('truetype');
+      font-weight: normal;
+    }
+     @font-face {
+      font-family: Koodakbold;
+      src: url('http://fonts.codearena.ir/b/koodakbold/koodakbold.eot');
+      src: url('http://fonts.codearena.ir/b/koodakbold/koodakbold.eot?#iefix') format('embedded-opentype'),
+           url('http://fonts.codearena.ir/b/koodakbold/koodakbold.woff') format('woff'),
+           url('http://fonts.codearena.ir/b/koodakbold/koodakbold.ttf') format('truetype');
+      font-weight: normal;
+    }
+     @font-face {
+      font-family: Ferdosi;
+      src: url('http://fonts.codearena.ir/b/ferdosi/ferdosi.eot');
+      src: url('http://fonts.codearena.ir/b/ferdosi/ferdosi.eot?#iefix') format('embedded-opentype'),
+           url('http://fonts.codearena.ir/b/ferdosi/ferdosi.woff') format('woff'),
+           url('http://fonts.codearena.ir/b/ferdosi/ferdosi.ttf') format('truetype');
+      font-weight: normal;
+    }
+.box {
+    border: #77C1E8 2px solid;
+    border-radius: 10px;
+    text-align: center;
+	height: auto;
+}
+.box #title {
+    position: relative;
+    top : -1em;
+    display: inline;
+	background: rgb(201, 211, 220) !important;
+	color:black !important;
+	padding-left:10px;
+	padding-right:10px; 
+}
+.box #title b,b.titr{
+	color:black !important;
+    font-family: Mitra;
+    font-size: 20px;
+}
+
+div.contant{
+    padding: 30px 30px;
+    text-align: right;
+}
+div.contant b{
+    font-family:Parastoo;
+}
+	
+.ui-input{
+	width: 200px;
+	
+}
+.ui-inputText{
+	width: 200px;
+	height: 60px;
+}
+.ui-buttom-submit{
+	background-image: none !important;
+	background-color:#3E68AC !important;
+    color:#FFFFFF !important;
+    width:100px !important;
+    font-family:Parastoo !important;
+    font-size: 20px !important;
+}
+.ui-selectonemenu{
+	background-image:none !important;
+	background-color: #FFFFFF !important;
+	width: 150px !important;
+	text-align: right !important;
+}
+.ui-selectonemenu-label{
+	 font-family: Mitra;
+	background-color: #FFFFFF !important;
+	text-align: right !important;
+}
+.ui-selectonemenu-trigger{
+	text-align: right !important;
+	background-image:none !important;
+	background-color: #4474CC !important;
+    text-align: right !important;
+}
+
+.ui-accordion{
+	background: none !important;
+	background: rgb(201, 211, 220) !important;
+}
+.ui-accordion-header{
+	background-color: #2EBDFF !important;
+	color: white !important;
+    font: 20px Parastoo !important;
+}
+.ui-accordion-content{
+	background: none !important;
+	background: rgb(201, 211, 220) !important;
+	
+}
+
+
+
+.inputsearch{
+	height: 30px !important;
+	width: 80% !important;
+	margin-top: 5px !important;
+}
+.inputsearch .ui-selectonemenu-label{
+	height: 100% !important;
+	border:  none !important;
+	font: 15px  Koodakbold !important;
+}
+
+
+.ui-wizard{
+	background: none !important;
+	background: white !important;
+	width: 100% !important;
+
+}
+.ui-wizard-step-titles{
+	
+	background: none !important;
+	background: rgb(201, 211, 220) !important;
+}
+.ui-wizard-step-title{
+
+    float:right !important;
+}
+.ui-wizard-nav-next{
+	visibility: hidden;
+    float:left !important;
+}
+.ui-wizard-nav-back{
+	visibility: hidden;
+    float:right !important;
+}
+.selectlink{
+    font: 25px Mitra !important;
+    text-align: center !important;
+}
+b.headerline{
+    font-family:Koodakbold ;
+    font-size: 20px;
+}
+
+.infoshow{
+	text-align: right !important;
+}
+
+.infoshow b{
+	font-family: Ferdosi !important;
+	font-size: 20px;
+	margin: 0px 10px !important;
+}
+
+
+.infoshow a{
+	color: blue !important;
+	font: 25px Ferdosi !important;   
+	margin:0px 10px 0px 0px;
+}
+
+
+.inputdisable{
+    color: #1F0000 !important;	
+}

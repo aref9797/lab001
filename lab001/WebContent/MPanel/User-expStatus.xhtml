@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<ui:composition template="../templates/Panel.xhtml"
+     xmlns="http://www.w3.org/1999/xhtml"
+     xmlns:f="http://java.sun.com/jsf/core"
+     xmlns:h="http://java.sun.com/jsf/html"
+     xmlns:ui="http://java.sun.com/jsf/facelets"
+     xmlns:p="http://primefaces.org/ui">
+     
+<ui:define name="content">
+	 <h:outputStylesheet library="css" name="Mpanel_style.css"></h:outputStylesheet>
+	 <h:outputStylesheet library="css" name="tabel_style.css"></h:outputStylesheet>
+	 
+	 <h:outputScript library="js" name="scroll.js"></h:outputScript>
+	
+	<div class="row text-center">
+		<div class="col-md-12">
+			<b class="titr"> آزمایش های در انتظار تایید</b>
+		</div>
+	
+	</div>
+	
+	 
+	 <h:form id="frmDT">
+		 <div class="row">
+		 	<DIV class="col-md-12 text-center">
+		 		<p:dataTable id="dtList"  value="" var="" reflow="true"> 
+					    
+					    <p:column headerText="آزمایش">
+					    	<b></b>
+					    </p:column>
+					 
+					    <p:column headerText="نام آزمایشگاه">
+					    	<b></b>
+					    </p:column>
+					    
+					    
+					 	<p:column headerText="نام مسئول آزمایشگاه" >
+					    	<b></b>
+					    </p:column>
+					    
+					    <p:column headerText="وضعیت آزمایش">
+					    	<b></b>
+					    </p:column>
+					   
+				</p:dataTable>
+				
+				<p:confirmDialog global="true" showEffect="fade" hideEffect="fade" styleClass="">
+			        <p:commandButton value="بلی" type="button" styleClass="ui-confirmdialog-yes" icon="ui-icon-check" />
+			        <p:commandButton value="خیر" type="button" styleClass="ui-confirmdialog-no" icon="ui-icon-close" />
+		   		</p:confirmDialog>
+		   		
+		 	</DIV>
+		 </div>
+		
+		
+		</h:form>
+</ui:define>
+</ui:composition>

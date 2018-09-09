@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html dir="rtl" lang="en"
+     xmlns="http://www.w3.org/1999/xhtml"
+     xmlns:f="http://java.sun.com/jsf/core"
+     xmlns:h="http://java.sun.com/jsf/html"
+     xmlns:ui="http://java.sun.com/jsf/facelets"
+     xmlns:p="http://primefaces.org/ui" >
+
+	<h:head>
+		<h:outputStylesheet library="css" name="bootstrap.rtl.css"  />
+		<h:outputStylesheet library="css" name="bootstrap.rtl.full.min.css"  />
+		<h:outputStylesheet library="css" name="bootstrap.rtl.min.css"  />
+		<h:outputStylesheet library="css" name="bootstrap.rtl.full.css"  />
+		<h:outputStylesheet library="css" name="UPanel.css"  />
+		
+		
+		<h:outputScript library="js" name="table.js"/>
+		<h:outputScript library="js" name="scroll.js"></h:outputScript>
+     	<h:outputScript library="js" name="jquery.js" target="head"></h:outputScript>
+     	<h:outputScript library="js" name="Screen.js"/>
+	</h:head>
+	
+	<h:body class="bodyshow">
+		
+		<div class="container-fluid">
+			<div class="row">
+				<div class="col-md-2 sidenav">
+					<ui:include src="tiles/LeftMenu.xhtml" />
+				</div>
+				<div class="col-md-1"></div>
+				<div id="somediv" class="col-md-8 content">
+						<ui:insert name="content"  > </ui:insert>
+				</div>
+			</div>
+		</div>
+ 		
+    
+    </h:body>
+</html>

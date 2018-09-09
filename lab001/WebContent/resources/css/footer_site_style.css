@@ -1,0 +1,17 @@
+div.footer{
+    height: 200px;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+}
+h3{
+    color: rgba(255, 255, 255, 1);
+}
+p{
+    color: rgba(255, 255, 255, 1);
+}
+
+div.footer{
+    
+    
+    width: 100%;
+}

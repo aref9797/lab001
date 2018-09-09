@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<ui:composition template="../templates/Panel.xhtml"
+     xmlns="http://www.w3.org/1999/xhtml"
+     xmlns:f="http://java.sun.com/jsf/core"
+     xmlns:h="http://java.sun.com/jsf/html"
+     xmlns:ui="http://java.sun.com/jsf/facelets"
+     xmlns:p="http://primefaces.org/ui">
+     
+<ui:define name="content">
+	 <h:outputStylesheet library="css" name="Mpanel_style.css"></h:outputStylesheet>
+	 <h:outputStylesheet library="css" name="tabel_style.css"></h:outputStylesheet>
+	 
+	 <h:outputScript library="js" name="scroll.js"></h:outputScript>
+	
+	
+	 
+	<div id="scroll"> 
+	<h:form id="frmNew">
+	 <div class="row">
+	 	<div class="col-md-2"></div>
+	 	<div class="col-md-8">
+	 		<div class="box">
+	 			<div id="title">
+	 				<b>ایجاد آزمایش</b>
+	 			</div>
+	 			<div class="row contant" >
+	 			
+		 				<div class="col-md-6" >
+		 					 <p:growl id="messages"  showDetail="true" life="7000"/>
+		 					 <br/>
+		 					 
+		 					<b>آزمایش :</b>
+		 					<p:inputText styleClass="ui-input" rendered="#{!ExperimentMB.isEdit}" value="#{ExperimentMB.baseEntity.name}" required="true" requiredMessage="نام آزمایش نباید خالی باشد" ></p:inputText>
+		 					<p:inputText  rendered="#{ExperimentMB.isEdit}"  value="#{ExperimentMB.baseEntity.name}" styleClass="ui-input" readonly="true"/>
+		 					<br/><br/>
+		 					<b>نام آزمایشگاه :</b>
+		 					<p:selectOneMenu id="labname" value="#{ExperimentMB.baseEntity.labname}" effect="fold">
+					             <f:selectItem itemLabel="یکی را انتخاب کنید" itemValue=""  />
+					            <f:selectItems value="#{ExperimentMB.lab_findAll()}" var="lab" itemLabel="#{lab.name}" itemValue="#{lab.name}" />
+       						 </p:selectOneMenu>
+		 					<br/><br/>
+		 					<b>قیمت :</b> 
+		 					<p:inputText styleClass="ui-input" value="#{ExperimentMB.baseEntity.price}" required="true" requiredMessage="قیمت آزمایش نباید خالی باشد"></p:inputText>
+		 					<b>تومان</b>
+		 					<br/><br/>
+		 					<b>عکس :</b>
+		 					<p:fileUpload value="#{upload.file}" mode="simple" skinSimple="true" auto="true"/> 
+		 					<br/><br/>
+		 					<b>توضیحات :</b>
+		 					<p:inputText styleClass="ui-inputText" value="#{ExperimentMB.baseEntity.details}" required="true" requiredMessage="توضیحات آزمایش نباید خالی باشد"></p:inputText>
+		 				</div>
+		 				<div class="col-md-6 text-center" >
+		 					<br/><br/>
+		 					<div class="row">
+		 						<div class="-col-md-12 text-center">
+		 							 <p:commandButton styleClass="ui-buttom-submit" value="ثبت "  update=":frmDT:dtList  frmNew" action="#{ExperimentMB.AddEdit()}" />
+		 						 </div>
+		 					</div>
+		 					<br/>
+		 					<div class="row">
+		 						<div class="-col-md-12 text-center">
+		 							<!--  <p:commandButton styleClass="ui-buttom-submit" value="جدید"   />	 -->
+		 						 </div>
+		 					</div>
+		 				</div>
+	 				
+	 			</div>
+	 		</div>
+	 		<br/><br/><br/>
+	 		
+	 	</div>
+	 </div>
+	 
+	 </h:form>
+	 
+	 <h:form id="frmDT">
+		 <div class="row">
+		 	<DIV class="col-md-12 text-center">
+		 		<p:dataTable id="dtList"  value="#{ExperimentMB.baseEntityList}" var="exp" reflow="true"> 
+					    
+					    <p:column headerText="آزمایش">
+					    	<b>#{exp.name}</b>
+					    </p:column>
+					 
+					    <p:column headerText="نام آزمایشگاه">
+					    	<b>#{exp.labname}</b>
+					    </p:column>
+					 	<p:column headerText="قیمت" style="width:15%;">
+					    	<b>#{exp.price}</b>
+					    </p:column>
+					    
+					    <p:column headerText="توضیحات" style="width:15%;">
+					    	<b>#{exp.details}</b>
+					    </p:column>
+					    
+					    <p:column headerText="عکس" style="width: 15%">
+					    	<p:commandLink styleClass="" id="imageBtn"   >
+					    		<img class="seen" src="../resources/images/seen.png"/>
+					    	</p:commandLink>
+					   	 	<p:overlayPanel id="imagePanel" for="imageBtn" hideEffect="fade">
+					   	 		<p:graphicImage library="images" name="Experiment/#{exp.photo}"></p:graphicImage>
+	       					</p:overlayPanel>
+					    </p:column>
+					 	
+					 	  <p:column headerText="عملیات" style="width: 15%">
+					 	  
+					    	<p:commandLink  styleClass="" ajax="true"  update=":frmNew" process="@this" action="#{ExperimentMB.setSelectedRow(exp)}">
+								<img class="edit" src="../resources/images/edit.png"/>
+							</p:commandLink>
+					    	<p:commandLink  styleClass="" ajax="true"  update="@form" process="@this" action="#{ExperimentMB.Remove(exp)}">
+					    		<img class="delete" src="../resources/images/delete.png"/>
+					    		<p:confirm header="تائید حذف رکورد انتخابی" message="آیا از حذف رکورد انتخابی مطمئن هستید؟" icon="ui-icon-alert" />
+					    	</p:commandLink>
+					    </p:column>
+					 	
+				</p:dataTable>
+				
+				<p:confirmDialog global="true" showEffect="fade" hideEffect="fade" styleClass="">
+			        <p:commandButton value="بلی" type="button" styleClass="ui-confirmdialog-yes" icon="ui-icon-check" />
+			        <p:commandButton value="خیر" type="button" styleClass="ui-confirmdialog-no" icon="ui-icon-close" />
+		   		</p:confirmDialog>
+		   		
+		 	</DIV>
+		 </div>
+		
+		
+		</h:form>
+		</div>
+</ui:define>
+</ui:composition>

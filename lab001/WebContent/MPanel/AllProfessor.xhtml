@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<ui:composition template="../templates/Panel.xhtml"
+     xmlns="http://www.w3.org/1999/xhtml"
+     xmlns:f="http://java.sun.com/jsf/core"
+     xmlns:h="http://java.sun.com/jsf/html"
+     xmlns:ui="http://java.sun.com/jsf/facelets"
+     xmlns:p="http://primefaces.org/ui">
+     
+<ui:define name="content">
+	 <h:outputStylesheet library="css" name="Mpanel_style.css"></h:outputStylesheet>
+	 <h:outputStylesheet library="css" name="tabel_style.css"></h:outputStylesheet>
+	 
+	 <h:outputScript library="js" name="scroll.js"></h:outputScript>
+	 <p:accordionPanel activeIndex="2">
+		 <p:tab title="لیست اساتید تایید نشده" >
+		 <h:form>
+			 <div class="row">
+			 		<div class="box col-md-12">
+			 			<div  id="title">
+			 				<b>لیست اساتید  تایید نشده</b>
+			 			</div>
+			 			<div class="row contant">
+			 				<p:dataTable id="dtList" var="prof" value="#{UserMB.FindACCProfessor()}" reflow="true"  > 
+						    
+								    <p:column headerText="نام ">
+								    	<b>#{prof.name}</b>
+								    </p:column>
+								 
+								    <p:column headerText="نام خانوداگی">
+								    	<b>#{prof.family}</b>
+								    </p:column>
+								 	
+								 	 <p:column headerText="نام کاربری">
+								    	<b>#{prof.username}</b>
+								    </p:column>
+								 	
+								    <p:column headerText="ایمیل">
+								    	<b>#{prof.email}</b>
+								    </p:column>
+								 	
+								 	 <p:column headerText="شماره" >
+								    	<b>#{prof.mobile}</b>
+								    </p:column>
+								 	
+								 	 <p:column headerText="شماره ملی" >
+								    	<b>#{prof.mellicode}</b>
+								    </p:column>
+								 	
+								 	
+								 	
+								 	 <p:column headerText="عملیات" >
+								    	<p:commandLink     type="submit" update="dtList"   process="@this" action="#{UserMB.userAccept(prof)}">
+								    		<img class="chek" src="../resources/images/chek.png"/>
+								    	</p:commandLink>
+								    	<p:commandLink   type="submit" update="@form"  process="@this" action="#{UserMB.Remove(prof)}">
+								    		<img class="delete" src="../resources/images/delete.png"/>
+								    		<p:confirm header="تائید حذف رکورد انتخابی" message="آیا از حذف رکورد انتخابی مطمئن هستید؟" icon="ui-icon-alert" />
+								    	</p:commandLink>
+								    </p:column>
+						 	
+							</p:dataTable>
+							
+								<p:confirmDialog global="true" showEffect="fade" hideEffect="fade" styleClass="">
+					     			<p:commandButton value="بلی" type="button" styleClass="ui-confirmdialog-yes" icon="ui-icon-check" />
+					     			<p:commandButton value="خیر" type="button" styleClass="ui-confirmdialog-no" icon="ui-icon-close" />
+		   						</p:confirmDialog>
+			 			</div>
+			 		</div>
+			</div>
+			</h:form>
+		</p:tab>
+	<br/><br/><br/>
+		 <p:tab title="لیست اساتید" >
+		 <h:form>
+			 <div class="row">
+			 		<div class="box col-md-12">
+			 			<div id="title">
+			 				<b>لیست اساتید </b>
+			 			</div>
+			 			<div class="row contant">
+			 				<p:dataTable id="alldt" var="pro" value="#{UserMB.FindAllProfessor()}" reflow="true"  > 
+						    
+								    <p:column headerText="نام ">
+								    	<b>#{pro.name}</b>
+								    </p:column>
+								 
+								    <p:column headerText="نام خانوداگی">
+								    	<b>#{pro.family}</b>
+								    </p:column>
+								 
+								 	 <p:column headerText="نام کاربری">
+								    	<b>#{pro.username}</b>
+								    </p:column>
+								 	
+								    <p:column headerText="ایمیل">
+								    	<b>#{pro.email}</b>
+								    </p:column>
+								 	
+								 	 <p:column headerText="شماره" >
+								    	<b>#{pro.mobile}</b>
+								    </p:column>
+								 	
+								 	 <p:column headerText="شماره ملی" >
+								    	<b>#{pro.mellicode}</b>
+								    </p:column>
+								 	
+							</p:dataTable>
+			 			</div>
+			 		</div>
+			</div>
+			</h:form>
+		</p:tab>
+	</p:accordionPanel>
+</ui:define>
+</ui:composition>

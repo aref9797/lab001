@@ -1,0 +1,105 @@
+@font-face {
+    font-family:'bnazanin';
+    src:local('B Nazanin'),
+        local('BNazanin');
+    src:url("#{resource['css:fonts/BNazanin.eot']}"),
+        url("#{resource['css:fonts/BNazanin.eot']}?#iefix") format('embedded-opentype'),
+        url("#{resource['css:fonts/BNazanin.woff']}") format('woff'),
+        url("#{resource['css:fonts/BNazanin.ttf']}") format('truetype');
+}
+@font-face {
+    font-family:'btitr';
+    src:local('B Titr'),
+        local('BTitr');
+    src:url("#{resource['css:fonts/BTitrBold.eot']}"),
+        url("#{resource['css:fonts/BTitrBold.eot']}?#iefix") format('embedded-opentype'),
+        url("#{resource['css:fonts/BTitrBold.woff']}") format('woff'),
+        url("#{resource['css:fonts/BTitrBold.ttf']}") format('truetype');
+}
+@font-face {
+    font-family:'bkoodak';
+    src:local('B Koodak'),
+        local('BKoodak');
+    src:url("#{resource['css:fonts/BKoodakBold.eot']}"),
+        url("#{resource['css:fonts/BKoodakBold.eot']}?#iefix") format('embedded-opentype'),
+        url("#{resource['css:fonts/BKoodakBold.woff']}") format('woff'),
+        url("#{resource['css:fonts/BKoodakBold.ttf']}") format('truetype');
+}
+.bodyshow{
+	background-image: url("#{resource['images:site/background.jpg']}") ;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+div.border{
+	border-radius: 10px;
+    height: auto;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+div.content{
+	border-radius: 10px;
+	padding: 30px;
+	background-color: rgb(208, 211, 220);
+    overflow: auto;
+    margin: 10px 0px;
+
+}
+
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 5px grey; 
+    border-radius: 10px;
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: #878787; 
+    border-radius: 10px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #b30000; 
+}
+
+div.infplabel{
+	background-color:rgb(51, 89, 204);
+    color: rgb(255, 255, 255);
+    text-align: center;
+    margin-right: 7px;
+    
+}
+div.infplabel b{
+    font-family: bnazanin;
+    font-size: 20px;
+}
+
+div.info{
+	border-radius: 10px;
+    border-color:rgb(51, 89, 204);
+    border-width: 1px;
+    border-style: solid;
+    height: auto;
+    padding-top: 30px;
+    padding-left: 10px;
+    padding-right: 30px;
+    padding-bottom: 30px;
+}
+div.info b.text{
+	font-family: btitr;
+	font-size: 18px;
+	color: rgb(71, 71, 71);
+}
+
+div.info b.inputtext{
+	font-family: btitr;
+	font-size: 20px;
+	color: black;
+}

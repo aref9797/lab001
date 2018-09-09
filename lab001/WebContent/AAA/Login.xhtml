@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<ui:composition template="../templates/WelcomeLayout.xhtml"
+     xmlns="http://www.w3.org/1999/xhtml"
+     xmlns:f="http://java.sun.com/jsf/core"
+     xmlns:h="http://java.sun.com/jsf/html"
+     xmlns:ui="http://java.sun.com/jsf/facelets"
+     xmlns:p="http://primefaces.org/ui">
+     
+<ui:define name="content">
+
+	<h:outputStylesheet library="css" name="site_style.css"></h:outputStylesheet>
+	
+	<h:form>
+	 		<div class="row">
+	 		 	<div class="col-md-12 text-center">
+	 		 		<h:graphicImage styleClass="img" library="images" name="login.png" /> 
+				</div>
+			</div>
+			
+			 <br/> <br/> <br/>
+			<div class="row">
+				<div class="col-md-4"></div>
+				<div class="col-md-6">
+	 				<b class="outlabel">نام کاربری</b>
+       				<p:inputText styleClass="inputlabel" style="width:200px" id="inputlabel" size="50"></p:inputText>	
+				</div>
+			</div>
+			 <br/> <br/> <br/>
+			<div class="row">
+				<div class="col-md-4"></div>
+				<div class="col-md-6">
+					<b class="outlabel">رمز عبور</b>
+       				<p:password styleClass="inputlabel"  style="width:200px" id="password"  value="#{LoginMB.password}" required="true" requiredMessage="فیلد رمز عبور نباید خالی باشد"></p:password>
+				</div>
+			</div>
+			
+			
+			 <br/> <br/> <br/>
+			<div class="row text-center">
+	 			 <div class="col-md-12">
+	 			 	<p:commandButton styleClass="ui-submit" ajax="false" value="ورود" action="#{LoginMB.Login()}"/>
+	 			 </div>
+	 		</div>
+	 		<br/>
+	 		<div class="row">
+	 			 <div class="col-md-5"></div>
+	 			 <div class="col-md-1">
+	 			 	<a class="link" href="#{request.contextPath}/AAA/Register.xhtml">عضویت</a>
+	 			 </div> 
+	 			 <div class="col-md-2">
+	 			 	<a class="link" href="#{request.contextPath}/AAA/LostPassword.xhtml">فراموشی رمز</a>
+	 			 </div>
+	 			 <div class="col-md-3"></div>
+	 		</div>
+	 		
+	</h:form>		
+		 
+</ui:define>
+</ui:composition>

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<ui:composition template="../templates/Panel.xhtml"
+     xmlns="http://www.w3.org/1999/xhtml"
+     xmlns:f="http://java.sun.com/jsf/core"
+     xmlns:h="http://java.sun.com/jsf/html"
+     xmlns:ui="http://java.sun.com/jsf/facelets"
+     xmlns:p="http://primefaces.org/ui">
+     
+<ui:define name="content">
+	 <h:outputStylesheet library="css" name="Mpanel_style.css"></h:outputStylesheet>
+	 <h:outputStylesheet library="css" name="tabel_style.css"></h:outputStylesheet>
+	 
+	 <h:outputScript library="js" name="scroll.js"></h:outputScript>
+	 
+	 <h:form id="form">
+                 
+	    <p:growl id="growl" sticky="true" showDetail="true"/>
+	 
+	    <p:wizard nextLabel="بعدی" widgetVar="wiz">
+	        <p:tab  title="انتخاب آزمتیش" >
+	        <p:panel styleClass="text-center">
+	        	<b class="headerline">لیست آزمایش ها</b>
+		      
+		        <p:messages for="input" display="text" />
+		        <br/>
+		        <p:dataTable var="lab" value="#{labmb.lablist}" reflow="true"  id="table" widgetVar="labtable"> 
+						  
+						    <p:column filterStyleClass="inputsearch" headerText="آزمایش" filterMatchMode="contains" filterBy="#{lab.name}">
+						    	<b>#{lab.name}</b>
+						    </p:column>
+						 
+						    <p:column  headerText="نام آزمایشگاه" filterMatchMode="contains" filterBy="#{lab.name}">
+						     <f:facet name="filter">
+				                <p:selectOneMenu  effect="fold" onchange="PF('labtable').filter()"  styleClass="inputsearch"> >
+				                  	<f:selectItem itemLabel="یکی را انتخاب کنید"  />
+					           		 <f:selectItems value="#{labmb.lablist}" var="lab1" itemLabel="#{lab1.name}"/>
+				                </p:selectOneMenu>
+				            </f:facet>
+						    <b></b>
+						    </p:column>
+						 	<p:column headerText="قیمت" style="width:15%;">
+						    	<b></b>
+						    </p:column>
+						 
+						 	 <p:column headerText="عملیات" style="width: 15%">
+						 	 	<p:commandLink onclick="PF('wiz').next()"   title="View Detail" value="انتخاب" styleClass="selectlink">
+				                    <f:setPropertyActionListener value="#{lab}" target="#{labmb.ls}" />
+		             		   </p:commandLink>
+						    </p:column>
+						 	
+					</p:dataTable>
+					</p:panel>
+	        </p:tab>
+	 
+	        <p:tab id="address" title="تکمیل اطلاعات">
+	     		<p:panel styleClass="infoshow">
+	     			<b>نام آزمایش</b>
+	     			<p:inputText  disabled="true" styleClass="inputdisable"/>
+	     			<a onclick="PF('wiz').back()" href="#" >   تغییر</a>
+	     			<br/><br/>
+	     			<b>نام آزمایشگاه</b>
+	     			<p:inputText  disabled="true"/>
+	     			<br/><br/>
+	     			<b>قیمت</b>
+	     			<p:inputText  disabled="true"/>
+	     			<b>تومان</b>
+	     			<br/><br/>
+	     			<b>  انتخاب استاد</b>
+	     			<p:selectOneMenu  effect="fold">
+					            <f:selectItem itemLabel="یکی را انتخاب کنید" itemValue=""  />
+					            <f:selectItems value="#{labmb.lablist}" var="lab" itemLabel="#{lab.name}" itemValue="#{lab}" />
+       				 </p:selectOneMenu>
+       				 
+       				 
+       				 
+       				 <br/><br/>
+       				 
+       				 
+       				 <div class="row">
+       				 	<div class="col-md-12 text-center">
+       				 		 <p:commandButton styleClass="ui-buttom-submit" value="ثبت "   />
+       				 	</div>
+       				 </div>
+	     		</p:panel>
+	        	
+	        </p:tab>
+	 
+	    </p:wizard>
+ 
+	</h:form>
+</ui:define>
+</ui:composition>

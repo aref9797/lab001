@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<ui:composition template="../templates/Panel.xhtml"
+     xmlns="http://www.w3.org/1999/xhtml"
+     xmlns:f="http://java.sun.com/jsf/core"
+     xmlns:h="http://java.sun.com/jsf/html"
+     xmlns:ui="http://java.sun.com/jsf/facelets"
+     xmlns:p="http://primefaces.org/ui">
+     
+<ui:define name="content">
+	 <h:outputStylesheet library="css" name="Mpanel_style.css"></h:outputStylesheet>
+	 <h:outputStylesheet library="css" name="tabel_style.css"></h:outputStylesheet>
+	 
+	 <h:outputScript library="js" name="scroll.js"></h:outputScript>
+	 
+	 
+	<div id="scroll"> 
+	<h:form id="frmNew">
+	
+		 <div class="row">
+		 	<div class="col-md-2"></div>
+		 	<div class="col-md-8">
+		 		<div class="box">
+		 			<div id="title">
+		 				<b>ایجاد تجهیزات</b>
+		 			</div>
+		 			<div class="row contant" >
+		 			<h:form>
+			 				<div class="col-md-6" >
+				 				<p:growl id="messages" showDetail="true" life="7000"/>
+			 					<br/>
+			 					
+			 					<b>نام دستگاه :</b>
+			 					<p:inputText styleClass="ui-input" rendered="#{!EquipmentMB.isEdit}" value="#{EquipmentMB.baseEntity.name}" required="true" requiredMessage="نام تجهیزات نباید خالی باشد"></p:inputText>
+			 					<p:inputText rendered="#{EquipmentMB.isEdit}"  value="#{EquipmentMB.baseEntity.name}" styleClass="ui-input" readonly="true"></p:inputText>
+			 					<br/><br/>
+			 					<b>نام آزمایشگاه :</b>
+			 					<p:selectOneMenu value="#{EquipmentMB.baseEntity.labname}" effect="fold">
+						            <f:selectItem itemLabel="یکی را انتخاب کنید" itemValue=""  />
+						            <f:selectItems value="#{EquipmentMB.lab_findAll()}" var="lab" itemLabel="#{lab.name}" itemValue="#{lab.name}" />
+	       						 </p:selectOneMenu>
+			 					<br/><br/>
+			 					<b>سال تولید :</b>
+			 					<p:calendar styleClass="ui-input" value="#{EquipmentMB.baseEntity.pyear}" required="true" requiredMessage="سال تولید نباید خالی باشد"></p:calendar>
+			 					<br/><br/>
+			 					<b>عکس :</b>
+			 					<p:fileUpload value="#{fileUploadView.file}" mode="simple" skinSimple="true" auto="true"/> 
+								<br/><br/>
+			 					
+			 				</div>
+			 				<div class="col-md-6 text-center" >
+			 					<br/><br/>
+			 					<div class="row">
+			 						<div class="-col-md-12 text-center">
+			 							 <p:commandButton styleClass="ui-buttom-submit" value="ثبت "  update=":frmDT:dtList  frmNew" action="#{EquipmentMB.AddEdit()}"/>
+			 						 </div>
+			 					</div>
+			 					<br/>
+			 					<div class="row">
+			 						<div class="-col-md-12 text-center">
+			 							<!--  <p:commandButton styleClass="ui-buttom-submit" value="جدید"   />	 -->
+			 						 </div>
+			 					</div>
+			 				</div>
+		 				</h:form>
+		 			</div>
+		 		</div>
+		 		<br/><br/><br/>
+		 		
+		 	</div>
+		 </div>
+		 
+	 </h:form>
+	 
+	 <h:form id="frmDT">
+	 
+		 <div class="row">
+		 	<DIV class="col-md-12 text-center">
+		 		<p:dataTable id="dtList" value="#{EquipmentMB.baseEntityList}" var="equ" reflow="true"> 
+					    	
+					    <p:column headerText="نام دستگاه">
+					    	<b>#{equ.name}</b>
+					    </p:column>
+					 
+					    <p:column headerText="نام آزمایشگاه">
+					    	<b>#{equ.labname}</b>
+					    </p:column>
+					 	<p:column headerText="سال تولید" style="width:15%;">
+					    	<b>#{equ.pyear}</b>
+					    </p:column>
+					    <p:column headerText="عکس" style="width: 15%">
+					    	<p:commandLink styleClass="" id="imageBtn"  type="button" >
+					    		<img class="seen" src="../resources/images/seen.png"/>
+					    	</p:commandLink>
+					   	 	<p:overlayPanel id="imagePanel" for="imageBtn" hideEffect="fade">
+					   	 		<p:graphicImage library="images" name="Equipment/#{equ.photo}"></p:graphicImage>
+	       					</p:overlayPanel>
+					    </p:column>
+					 	
+					 	 <p:column headerText="عملیات" style="width: 15%">
+					 	
+					 	 		<p:commandLink  styleClass="" ajax="true"  type="submit" update=":frmNew" process="@this" action="#{EquipmentMB.setSelectedRow(equ)}">
+					 	 			 	<img class="edit" src="../resources/images/edit.png"/>   
+					 	 		</p:commandLink>
+					 	
+					    	<p:commandLink  styleClass="" ajax="true" type="submit" update="@form" process="@this" action="#{EquipmentMB.Remove(equ)}">
+					    		<img class="delete" src="../resources/images/delete.png"/>    
+					    		<p:confirm header="تائید حذف رکورد انتخابی" message="آیا از حذف رکورد انتخابی مطمئن هستید؟" icon="ui-icon-alert" />
+					    	</p:commandLink>
+					    </p:column>
+					 	
+				</p:dataTable>
+				
+				<p:confirmDialog global="true" showEffect="fade" hideEffect="fade" styleClass="">
+			        <p:commandButton value="بلی" type="button" styleClass="ui-confirmdialog-yes" icon="ui-icon-check" />
+			        <p:commandButton value="خیر" type="button" styleClass="ui-confirmdialog-no" icon="ui-icon-close" />
+		   		</p:confirmDialog>
+		   		
+		 	</DIV>
+		 </div>
+	 </h:form>
+	</div>
+
+</ui:define>
+</ui:composition>

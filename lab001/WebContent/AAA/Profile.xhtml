@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<ui:composition template="../templates/Panel.xhtml"
+     xmlns="http://www.w3.org/1999/xhtml"
+     xmlns:f="http://java.sun.com/jsf/core"
+     xmlns:h="http://java.sun.com/jsf/html"
+     xmlns:ui="http://java.sun.com/jsf/facelets"
+     xmlns:p="http://primefaces.org/ui">
+     
+<ui:define name="content">
+	
+	<div class="row">
+		<div class="col-md-4"></div>
+		<div class="col-md-4">
+			<div class="row">
+				<div class="col-md-4 infplabel">
+					<b>اطلاعات کاربری</b>
+				</div>				
+			</div>
+				<div class="row info">
+					<b class="text">نام :</b>
+					<b class="inputtext">#{ChangeProfileMB.profileUIModel.name}</b>
+					<br/><br/>
+					<b class="text">نام خانوادگی :</b>
+					<b class="inputtext">#{ChangeProfileMB.profileUIModel.family}</b>
+					<br/><br/>
+					<b class="text">نام کاربری :</b>
+					<b class="inputtext">#{ChangeProfileMB.profileUIModel.username}</b>
+					<br/><br/>
+					<b class="text">تلفن :</b>
+					<b class="inputtext">#{ChangeProfileMB.profileUIModel.mobile}</b>
+					<br/><br/>
+					<b class="text">ایمیل :</b>
+					<b class="inputtext">#{ChangeProfileMB.profileUIModel.email}</b>
+					<br/><br/>
+					<b class="text">شماره ملی :</b>
+					<b class="inputtext">#{ChangeProfileMB.profileUIModel.mellicode}</b>
+					<br/><br/>
+					<b class="text">آخرین ورود به سیستم :</b>
+					<b class="inputtext">#{ChangeProfileMB.profileUIModel.lastlogindate}</b>
+					<br/>
+					<br/><br/>
+					<b class="text">تعداد کل ورود به سیستم :</b>
+					<b class="inputtext">#{ChangeProfileMB.profileUIModel.logincount}</b>
+					<br/>
+			</div>
+		</div>
+		<div class="col-md-4"></div>
+	</div>
+
+
+
+</ui:define>
+</ui:composition>

@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<ui:composition template="../templates/Panel.xhtml"
+     xmlns="http://www.w3.org/1999/xhtml"
+     xmlns:f="http://java.sun.com/jsf/core"
+     xmlns:h="http://java.sun.com/jsf/html"
+     xmlns:ui="http://java.sun.com/jsf/facelets"
+     xmlns:p="http://primefaces.org/ui">
+     
+<ui:define name="content">
+	 <h:outputStylesheet library="css" name="Mpanel_style.css"></h:outputStylesheet>
+	 
+	 <h:outputStylesheet library="css" name="tabel_style.css"></h:outputStylesheet>
+	 
+	  <h:outputScript library="js" name="scroll.js"></h:outputScript>
+	     <p:growl id="messages" showDetail="true" />
+	 <h:form id="frmNew"  enctype="multipart/form-data">
+	 
+		 <div class="row">
+		 	<div class="col-md-2"></div>
+		 	<div class="col-md-8">
+		 		<div class="box">
+		 			<div id="title">
+		 				<b>ایجاد آزمایشگاه</b>
+		 			</div>
+		 			<div class="row contant">
+		 			
+		 					 <p:growl id="messages"  showDetail="true" life="7000"/>
+		 					 <br/><br/>
+			 				
+			 				<div class="col-md-6">
+			 					<b>نام آزمایشگاه :</b>
+			 					<p:inputText styleClass="ui-input" id="name" rendered="#{!LaboratoryMB.isEdit}" value="#{LaboratoryMB.baseEntity.name}" required="true" requiredMessage="فیلد نام آزمایشگاه نباید خالی باشد"/>
+			 					<p:inputText  rendered="#{LaboratoryMB.isEdit}"  value="#{LaboratoryMB.baseEntity.name}" styleClass="ui-input" readonly="true"/>
+			 					<br/><br/>
+			 					<b>مسئول آزمایشگاه :</b>
+		 						<p:selectOneMenu value="#{LaboratoryMB.baseEntity.responsible}" effect="fold">
+					           		 <f:selectItem itemLabel="یکی را انتخاب کنید" itemValue=""  />
+					           		 <f:selectItems value="#{LaboratoryMB.user_findAll()}" var="lab" itemLabel="#{lab.name}" itemValue="#{lab.name}" />
+       						 	</p:selectOneMenu>
+		 						<br/><br/>
+			 					<br/><br/>
+			 					<b>عکس :</b>
+			 					<p:fileUpload  mode="simple"  skinSimple="true"  value="#{LaboratoryMB.file}" /> 
+			 					<br/><br/>
+			 					<b>توضیحات :</b>
+			 					<p:inputText styleClass="ui-inputText" id="detailes" value="#{LaboratoryMB.baseEntity.detailes}" required="true" requiredMessage="فیلد توضیحات نباید خالی باشد"></p:inputText>
+			 				</div>
+			 				<div class="-col-md-12 text-center">
+			 					 <p:commandButton type="submit" value="ثبت "  ajax="false"  actionListener="#{LaboratoryMB.AddEdit}" styleClass="ui-buttom-submit" />
+			 					 
+			 					 <!-- <p:commandButton type="submit" value="جدید" process="@this" update=":frmNew"/> -->
+			 				</div>
+		 				
+		 				
+		 			</div>
+		 		</div>
+		 		<br/><br/><br/>
+		 		
+		 	</div>
+		 </div>
+		 
+	 </h:form>
+	 
+	 <h:form id="frmDT">
+	 
+		 <div class="row">
+		 	<DIV class="col-md-12 text-center">
+		 		<p:dataTable id="dtList" widgetVar="dtList" var="lab" value="#{LaboratoryMB.baseEntityList}" reflow="true">
+		 		
+					    <p:column headerText="نام آزمایشگاه">
+					    	<b>#{lab.name}</b>
+					    </p:column>
+					 
+					    <p:column headerText="مسئول آزمایشگاه">
+					    	<b>#{lab.responsible}</b>
+					    </p:column>
+					    
+					    <p:column headerText="توضیحات">
+					    	<b>#{lab.detailes}</b>
+					    </p:column>
+					 
+					    <p:column headerText="عکس" style="width: 15%">
+					    	<p:commandLink styleClass="" id="imageBtn"  type="button" >
+					    		<img class="seen" src="../resources/images/seen.png"/>
+					    	</p:commandLink>
+					   	 	<p:overlayPanel id="imagePanel" for="imageBtn" hideEffect="fade">
+					   	 		<p:graphicImage library="images" name="Laboratory/#{lab.photo}"></p:graphicImage>
+	       					</p:overlayPanel>
+					    </p:column>
+					 
+					 	 <p:column headerText="عملیات" style="width: 15%">
+					    	<p:commandLink  styleClass="" ajax="true"  type="submit" update=":frmNew" process="@this" action="#{LaboratoryMB.setSelectedRow(lab)}">
+					    		<img class="edit" src="../resources/images/edit.png"/>
+					    	</p:commandLink>
+					    	<p:commandLink  styleClass="" ajax="true"  type="submit" update="@form" process="@this" action="#{LaboratoryMB.Remove(lab)}">
+					    		<img class="delete" src="../resources/images/delete.png"/>
+					    		<p:confirm header="تائید حذف رکورد انتخابی" message="آیا از حذف رکورد انتخابی مطمئن هستید؟" icon="ui-icon-alert" />
+					    	</p:commandLink>
+					    </p:column>
+					 	
+				</p:dataTable>
+				
+				<p:confirmDialog global="true" showEffect="fade" hideEffect="fade" styleClass="">
+			        <p:commandButton value="بلی" type="button" styleClass="ui-confirmdialog-yes" icon="ui-icon-check" />
+			        <p:commandButton value="خیر" type="button" styleClass="ui-confirmdialog-no" icon="ui-icon-close" />
+		   		</p:confirmDialog>
+		    
+		 	</DIV>
+		 </div>
+		 
+	</h:form>
+
+</ui:define>
+</ui:composition>

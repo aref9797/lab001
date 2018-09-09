@@ -1,0 +1,62 @@
+<ui:composition template="../templates/WelcomeLayout.xhtml"
+     xmlns="http://www.w3.org/1999/xhtml"
+     xmlns:f="http://java.sun.com/jsf/core"
+     xmlns:h="http://java.sun.com/jsf/html"
+     xmlns:ui="http://java.sun.com/jsf/facelets"
+     xmlns:p="http://primefaces.org/ui">
+     
+     
+     
+     
+<ui:define name="content" id="body">
+	
+	
+	
+	
+	<br/><br/>
+	
+	
+	
+		<div class="row text-center">
+			<div class="col-md-5 blue"></div>
+			<div class="col-md-2 txe-center"><b class="header"> آزمایش ها</b></div>
+			<div class="col-md-5 blue"></div>
+		</div>
+		
+		
+		<br/><br/>
+		
+		<p:dataGrid styleClass="datagied" var="exp" value="#{ExperimentMB.baseEntityList}" columns="2" layout="grid"
+        rows="6" paginator="true"
+        paginatorTemplate="{NextPageLink} {LastPageLink} {PageLinks} {FirstPageLink} {PreviousPageLink} {RowsPerPageDropdown}"
+        paginatorPosition="bottom" emptyMessage="هیچ رکوردی برای نمایش پیدا نشد"
+       	rowsPerPageTemplate="6,12,18">
+ 
+        
+        <p:panel styleClass="griedpanel" >
+            <img src="../resources/images/Experiment/#{exp.photo}" class="gried img-thumbnail img-responsive"></img>
+            <div class="datapanel">
+            	<b class="bold">نام :</b>
+            	<b class="data">#{exp.name}</b>
+            	<br/>
+            	<b class="bold">آزمایشگاه :</b>
+            	<b class="data">#{exp.laboratory.name}</b>
+            	<br/>
+            	<b class="bold">قیمت :</b>
+            	<b class="data">#{exp.price} تومان</b>
+            	<br/>
+            	<b class="bold">توضیحات :</b>
+            	<b class="data">#{lab.detailes}</b>
+            </div>
+        </p:panel>
+ 
+    </p:dataGrid>
+		
+	
+
+    
+    
+    
+    
+</ui:define>
+</ui:composition>

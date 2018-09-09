@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<ui:composition template="../templates/WelcomeLayout.xhtml"
+     xmlns="http://www.w3.org/1999/xhtml"
+     xmlns:f="http://java.sun.com/jsf/core"
+     xmlns:h="http://java.sun.com/jsf/html"
+     xmlns:ui="http://java.sun.com/jsf/facelets"
+     xmlns:p="http://primefaces.org/ui">
+     
+<ui:define name="content">
+	<h:outputStylesheet library="css" name="site_style.css"></h:outputStylesheet>
+
+	 <br/> 
+	 
+	 <h:form>
+	 
+		 <div class="row">
+		 	
+		 		<div class="row">
+		 		 	<div class="col-md-12 text-center">
+		 		 		<h:graphicImage styleClass="img" library="images" name="unlock.png" /> 
+					</div>
+		 		</div>
+		 		 <br/> <br/>
+		 		 
+		 		  <p:messages styleClass="" id="messages"  showDetail="false" autoUpdate="true" closable="true" />
+		 		 
+		 		 <div class="row">
+					<div class="col-md-4"></div>
+					<div class="col-md-6">
+		 				<b class="outlabel">کد تایید</b>
+	       				<p:inputText styleClass="inputlabel"  style="width:200px" id="hit" binding="#{hit}" size="40" value="#{HitRegisterMB.hit}" required="true" requiredMessage="فیلد کد تایید نباید خالی باشد"></p:inputText>	
+					</div>
+				</div>
+		 		 
+		 		 
+		 		  <br/> <br/> <br/>
+				<div class="row text-center">
+		 			 <div class="col-md-12">
+		 			 	<p:commandButton styleClass="ui-submit" id="register" value="ارسال" action="#{HitRegisterMB.HitRegister(hit.value)}"/>
+		 			 </div>
+		 		</div>
+		 		
+		 </div>
+		 
+	</h:form>
+
+</ui:define>
+</ui:composition>

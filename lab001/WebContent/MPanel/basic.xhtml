@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<ui:composition template="../templates/Panel.xhtml"
+     xmlns="http://www.w3.org/1999/xhtml"
+     xmlns:f="http://java.sun.com/jsf/core"
+     xmlns:h="http://java.sun.com/jsf/html"
+     xmlns:ui="http://java.sun.com/jsf/facelets"
+     xmlns:p="http://primefaces.org/ui">
+     
+<ui:define name="content">
+	<h:form >
+    <p:growl id="messages" showDetail="true" />
+ 
+    <p:fileUpload value="#{fileUploadView.file}" mode="simple" skinSimple="true"/>
+ 
+    <p:commandButton value="Submit" ajax="false" actionListener="#{fileUploadView.upload}" />
+</h:form>
+
+</ui:define>
+</ui:composition>
