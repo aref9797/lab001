@@ -31,18 +31,18 @@
 		 					 
 		 					<b>نام :</b>
 		 					<br/>
-		 					<p:inputText styleClass="ui-input" rendered="#{!ExperimentMB.isEdit}" value="#{ExperimentMB.baseEntity.name}" required="true" requiredMessage="نام آزمایش نباید خالی باشد" />
-		 					<p:inputText  rendered="#{ExperimentMB.isEdit}"  value="#{ExperimentMB.baseEntity.name}" styleClass="ui-input" readonly="true"/>
+		 					<p:inputText styleClass="ui-input" rendered="#{!OperatorMB.isEdit}" value="#{OperatorMB.baseEntity.name}" required="true" requiredMessage="فیلد نام  نباید خالی باشد" />
+		 					<p:inputText  rendered="#{OperatorMB.isEdit}"  value="#{OperatorMB.baseEntity.name}" styleClass="ui-input" readonly="true"/>
 		 					<br/><br/>
 		 					
 		 					<b>نام کاربری :</b> 
 		 					<br/>
-		 					<p:inputText styleClass="ui-input" value="#{ExperimentMB.baseEntity.price}" required="true" requiredMessage="قیمت آزمایش نباید خالی باشد"/>
+		 					<p:inputText styleClass="ui-input" id="username" value="#{OperatorMB.baseEntity.username}" required="true" requiredMessage="قیمت نام کاربری نباید خالی باشد"/>
 		 					
 		 					<br/><br/>
 		 					<b>ایمیل :</b>
 		 					<br/>
-		 					<p:inputText styleClass="ui-input" id="email"  value="" required="true" requiredMessage="فیلد ایمیل نباید خالی باشد">
+		 					<p:inputText styleClass="ui-input" id="email"  value="#{OperatorMB.baseEntity.email}" validatorMessage="فرمت ایمیل را درست وارد کنید" required="true" requiredMessage="فیلد ایمیل نباید خالی باشد">
 	       						<f:validateRegex pattern="^[_A-Za-z0-9-\+]+(\.[_A-Za-z0-9-]+)*@[A-Za-z0-9-]+(\.[A-Za-z0-9]+)*(\.[A-Za-z]{2,})$" />
 	       					</p:inputText>	
 		 				</div>
@@ -50,16 +50,16 @@
 		 					 <br/>
 		 					<b>نام خانوادگی :</b>
 		 					<br/>
-		 					<p:inputText styleClass="ui-input"  value="" required="true" requiredMessage="نام خانوادگی نباید خالی باشد" />
+		 					<p:inputText styleClass="ui-input" id="family" value="#{OperatorMB.baseEntity.family}" required="true" requiredMessage="فیلد  نام خانوادگی نباید خالی باشد" />
 		 					<br/><br/>
 		 					<b>رمز عبور</b>
 		 					<br/>
-		 					<p:password styleClass="ui-input" id="pass" value="#{UserMB.user.hpassword}"  validatorMessage="رمز عبور و تکرار رمز عبور باید یکسان باشد" required="true" requiredMessage="فیلد  رمز عبور نباید خالی باشد"/>
+		 					<p:password styleClass="ui-input" id="password" value="#{OperatorMB.baseEntity.password}"  required="true" requiredMessage="فیلد  رمز عبور نباید خالی باشد"/>
 		 					<br/><br/>
 		 	
-		 					<b>تلغن تماس :</b>
+		 					<b>تلفن تماس :</b>
 		 					<br/>
-		 					<p:inputText styleClass="ui-input" value="" required="true" requiredMessage="شماره تماس نباید خالی باشد"/>
+		 					<p:inputText styleClass="ui-input" id="mobile" value="#{OperatorMB.baseEntity.mobile}" maxlength="11" mask="99999999999" required="true" requiredMessage="فیلد شماره تماس نباید خالی باشد"/>
 		 					
 		 					<br/>
 		 					
@@ -67,8 +67,7 @@
 		 			</div>
 		 			<div class="row padding">
 			 			<div class="-col-md-12 text-center ">
-							 <p:commandButton styleClass="ui-buttom-submit" value="ثبت "  update=":frmDT:dtList  frmNew"  />
-							 <p:commandButton styleClass="ui-buttom-submit" value="جدید"/>
+							 <p:commandButton styleClass="ui-buttom-submit" value="ثبت " actionListener="#{OperatorMB.AddEdit()}" update=":frmDT:dtList  frmNew"  />
 		 				</div>
 	 				</div>
 	 			</div>
@@ -84,30 +83,30 @@
 	 <h:form id="frmDT">
 		 <div class="row">
 		 	<DIV class="col-md-12 text-center">
-		 		<p:dataTable id="dtList"  value="#{ExperimentMB.baseEntityList}" var="exp" reflow="true"> 
+		 		<p:dataTable id="dtList"  value="#{OperatorMB.baseEntityList}" var="opt" reflow="true"> 
 					    
 					    <p:column headerText="نام">
-					    	<b></b>
+					    	<b>#{opt.name}</b>
 					    </p:column>
 					 
 					    <p:column headerText="نام خانوادگی">
-					    	<b></b>
+					    	<b>#{opt.family}</b>
 					    </p:column>
-					 	<p:column headerText="ام کاربری" >
-					    	<b></b>
+					 	<p:column headerText="نام کاربری" >
+					    	<b>#{opt.username}</b>
 					    </p:column>
 					    
 					    <p:column headerText="ایمیل" >
-					    	<b></b>
+					    	<b>#{opt.email}</b>
 					    </p:column>
 					    
-					    <p:column headerText="تلغن تماس">
-					    	<b></b>
+					    <p:column headerText="تلفن تماس">
+					    	<b>#{opt.mobile}</b>
 					    </p:column>
 					 	
 					 	  <p:column headerText="عملیات" style="width: 15%">
 					    	
-					    	<p:commandLink  styleClass="" ajax="true" type="submit" >
+					    	<p:commandLink  styleClass="" ajax="true" type="submit" actionListener="#{OperatorMB.Remove(opt)}" update="@form" >
 					    		<img class="delete" src="../resources/images/delete.png"/>
 					    	<p:confirm header="تائید حذف رکورد انتخابی" message="آیا از حذف رکورد انتخابی مطمئن هستید؟" icon="ui-icon-alert" />
 					    	</p:commandLink>

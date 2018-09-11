@@ -3,7 +3,6 @@ package Entity;
 import java.io.Serializable;
 import javax.persistence.*;
 
-import AAA.Entity.Aauser;
 
 import java.util.List;
 
@@ -25,7 +24,7 @@ public class Experiment implements Serializable {
 	private Long id;
 
 	private String details;
-//
+
 	private String labholder;
 
 	private String labname;
@@ -38,13 +37,7 @@ public class Experiment implements Serializable {
 
 	private Integer price;
 
-	private Boolean status;
-
-	@ManyToOne
-	@JoinColumn(name="user_id")
-	private Aauser User;
-
-
+	
 	//bi-directional many-to-one association to ExpReservaion
 	@OneToMany(mappedBy="experiment")
 	private List<ExpReservaion> expReservaions;
@@ -123,22 +116,6 @@ public class Experiment implements Serializable {
 
 	public void setPrice(Integer price) {
 		this.price = price;
-	}
-
-	public Boolean getStatus() {
-		return this.status;
-	}
-
-	public void setStatus(Boolean status) {
-		this.status = status;
-	}
-
-	public Aauser getUserId() {
-		return this.User;
-	}
-
-	public void setUserId(Aauser user) {
-		this.User = user;
 	}
 
 	public List<ExpReservaion> getExpReservaions() {
