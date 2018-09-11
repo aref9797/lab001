@@ -37,6 +37,7 @@
     text-align: center;
 	height: auto;
 }
+
 .box #title {
     position: relative;
     top : -1em;
@@ -59,9 +60,15 @@ div.contant{
 div.contant b{
     font-family:Parastoo;
 }
+
+
+div.padding{
+	padding: 20px 0px;
+}
 	
 .ui-input{
-	width: 200px;
+	
+	width: 80%;
 	
 }
 .ui-inputText{

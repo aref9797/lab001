@@ -23,47 +23,45 @@
 	 			<div id="title">
 	 				<b>ایجاد آزمایش</b>
 	 			</div>
-	 			<div class="row contant" >
-	 			
+	 			<div class="contant" >
+	 				<div class="row">
 		 				<div class="col-md-6" >
 		 					 <p:growl id="messages"  showDetail="true" life="7000"/>
-		 					 <br/>
-		 					 
+		 					
 		 					<b>آزمایش :</b>
+		 					<br/>
 		 					<p:inputText styleClass="ui-input" rendered="#{!ExperimentMB.isEdit}" value="#{ExperimentMB.baseEntity.name}" required="true" requiredMessage="نام آزمایش نباید خالی باشد" ></p:inputText>
 		 					<p:inputText  rendered="#{ExperimentMB.isEdit}"  value="#{ExperimentMB.baseEntity.name}" styleClass="ui-input" readonly="true"/>
 		 					<br/><br/>
 		 					<b>نام آزمایشگاه :</b>
+		 					<br/>
 		 					<p:selectOneMenu id="labname" value="#{ExperimentMB.baseEntity.labname}" effect="fold">
 					             <f:selectItem itemLabel="یکی را انتخاب کنید" itemValue=""  />
 					            <f:selectItems value="#{ExperimentMB.lab_findAll()}" var="lab" itemLabel="#{lab.name}" itemValue="#{lab.name}" />
        						 </p:selectOneMenu>
 		 					<br/><br/>
-		 					<b>قیمت :</b> 
-		 					<p:inputText styleClass="ui-input" value="#{ExperimentMB.baseEntity.price}" required="true" requiredMessage="قیمت آزمایش نباید خالی باشد"></p:inputText>
-		 					<b>تومان</b>
-		 					<br/><br/>
-		 					<b>عکس :</b>
-		 					<p:fileUpload value="#{upload.file}" mode="simple" skinSimple="true" auto="true"/> 
-		 					<br/><br/>
 		 					<b>توضیحات :</b>
+		 					<br/>
 		 					<p:inputText styleClass="ui-inputText" value="#{ExperimentMB.baseEntity.details}" required="true" requiredMessage="توضیحات آزمایش نباید خالی باشد"></p:inputText>
 		 				</div>
-		 				<div class="col-md-6 text-center" >
-		 					<br/><br/>
-		 					<div class="row">
-		 						<div class="-col-md-12 text-center">
-		 							 <p:commandButton styleClass="ui-buttom-submit" value="ثبت "  update=":frmDT:dtList  frmNew" action="#{ExperimentMB.AddEdit()}" />
-		 						 </div>
-		 					</div>
+		 				<div class="col-md-6" >
+		 					<b>قیمت :</b> 
 		 					<br/>
-		 					<div class="row">
-		 						<div class="-col-md-12 text-center">
-		 							<!--  <p:commandButton styleClass="ui-buttom-submit" value="جدید"   />	 -->
-		 						 </div>
-		 					</div>
+		 					<p:inputText style="width:80%;margin-left:0px" styleClass="ui-input" value="#{ExperimentMB.baseEntity.price}" required="true" requiredMessage="قیمت آزمایش نباید خالی باشد"></p:inputText>
+		 					<b>تومان</b>
+		 					
+		 					<br/><br/>
+		 					<b>عکس :</b>
+		 					<br/>
+		 					<p:fileUpload value="#{upload.file}" mode="simple" skinSimple="true" auto="true"/> 
 		 				</div>
-	 				
+	 				</div>
+	 				<div class="row padding">
+						<div class="-col-md-12 text-center">
+							 <p:commandButton styleClass="ui-buttom-submit" value="ثبت "  update=":frmDT:dtList  frmNew" action="#{ExperimentMB.AddEdit()}" />
+							  <p:commandButton styleClass="ui-buttom-submit" value="جدید"   />
+		 				 </div>
+		 			</div>
 	 			</div>
 	 		</div>
 	 		<br/><br/><br/>

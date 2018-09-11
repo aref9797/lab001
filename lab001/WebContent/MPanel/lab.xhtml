@@ -22,36 +22,42 @@
 		 			<div id="title">
 		 				<b>ایجاد آزمایشگاه</b>
 		 			</div>
-		 			<div class="row contant">
-		 			
+		 			<div class="contant">
+		 				<div class="row">
 		 					 <p:growl id="messages"  showDetail="true" life="7000"/>
 		 					 <br/><br/>
 			 				
 			 				<div class="col-md-6">
 			 					<b>نام آزمایشگاه :</b>
+			 					<br/>
 			 					<p:inputText styleClass="ui-input" id="name" rendered="#{!LaboratoryMB.isEdit}" value="#{LaboratoryMB.baseEntity.name}" required="true" requiredMessage="فیلد نام آزمایشگاه نباید خالی باشد"/>
 			 					<p:inputText  rendered="#{LaboratoryMB.isEdit}"  value="#{LaboratoryMB.baseEntity.name}" styleClass="ui-input" readonly="true"/>
 			 					<br/><br/>
+			 					<b>عکس :</b>
+			 					<br/>
+			 					<p:fileUpload  mode="simple"  skinSimple="true"  value="#{LaboratoryMB.file}" /> 
+			 					<br/><br/>
+			 					<b>توضیحات :</b>
+			 					<br/>
+			 					<p:inputText styleClass="ui-inputText" id="detailes" value="#{LaboratoryMB.baseEntity.detailes}" required="true" requiredMessage="فیلد توضیحات نباید خالی باشد"></p:inputText>
+			 				</div>
+			 				<div class="col-md-6">
 			 					<b>مسئول آزمایشگاه :</b>
+			 					<br/>
 		 						<p:selectOneMenu value="#{LaboratoryMB.baseEntity.responsible}" effect="fold">
 					           		 <f:selectItem itemLabel="یکی را انتخاب کنید" itemValue=""  />
 					           		 <f:selectItems value="#{LaboratoryMB.user_findAll()}" var="lab" itemLabel="#{lab.name}" itemValue="#{lab.name}" />
        						 	</p:selectOneMenu>
 		 						<br/><br/>
-			 					<br/><br/>
-			 					<b>عکس :</b>
-			 					<p:fileUpload  mode="simple"  skinSimple="true"  value="#{LaboratoryMB.file}" /> 
-			 					<br/><br/>
-			 					<b>توضیحات :</b>
-			 					<p:inputText styleClass="ui-inputText" id="detailes" value="#{LaboratoryMB.baseEntity.detailes}" required="true" requiredMessage="فیلد توضیحات نباید خالی باشد"></p:inputText>
 			 				</div>
-			 				<div class="-col-md-12 text-center">
+		 				</div>
+		 				<div class="row padding">
+		 					<div class="col-md-12 text-center">
 			 					 <p:commandButton type="submit" value="ثبت "  ajax="false"  actionListener="#{LaboratoryMB.AddEdit}" styleClass="ui-buttom-submit" />
 			 					 
-			 					 <!-- <p:commandButton type="submit" value="جدید" process="@this" update=":frmNew"/> -->
+			 					  <p:commandButton type="submit" value="جدید" process="@this" update=":frmNew"/> 
 			 				</div>
-		 				
-		 				
+		 				</div>
 		 			</div>
 		 		</div>
 		 		<br/><br/><br/>

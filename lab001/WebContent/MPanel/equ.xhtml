@@ -23,40 +23,40 @@
 		 			<div id="title">
 		 				<b>ایجاد تجهیزات</b>
 		 			</div>
-		 			<div class="row contant" >
+		 			<div class="contant">
 		 			<h:form>
+		 				<div class="row">
 			 				<div class="col-md-6" >
 				 				<p:growl id="messages" showDetail="true" life="7000"/>
-			 					<br/>
 			 					
 			 					<b>نام دستگاه :</b>
+			 					<br/>
 			 					<p:inputText styleClass="ui-input" rendered="#{!EquipmentMB.isEdit}" value="#{EquipmentMB.baseEntity.name}" required="true" requiredMessage="نام تجهیزات نباید خالی باشد"></p:inputText>
 			 					<p:inputText rendered="#{EquipmentMB.isEdit}"  value="#{EquipmentMB.baseEntity.name}" styleClass="ui-input" readonly="true"></p:inputText>
 			 					<br/><br/>
 			 					<b>نام آزمایشگاه :</b>
+			 					<br/>
 			 					<p:selectOneMenu value="#{EquipmentMB.baseEntity.labname}" effect="fold">
 						            <f:selectItem itemLabel="یکی را انتخاب کنید" itemValue=""  />
 						            <f:selectItems value="#{EquipmentMB.lab_findAll()}" var="lab" itemLabel="#{lab.name}" itemValue="#{lab.name}" />
 	       						 </p:selectOneMenu>
 			 					<br/><br/>
+			 					
+			 					
+			 				</div>
+			 				<div class="col-md-6" >
 			 					<b>سال تولید :</b>
+			 					<br/>
 			 					<p:calendar styleClass="ui-input" value="#{EquipmentMB.baseEntity.pyear}" required="true" requiredMessage="سال تولید نباید خالی باشد"></p:calendar>
 			 					<br/><br/>
 			 					<b>عکس :</b>
+			 					<br/>
 			 					<p:fileUpload value="#{fileUploadView.file}" mode="simple" skinSimple="true" auto="true"/> 
 								<br/><br/>
-			 					
 			 				</div>
-			 				<div class="col-md-6 text-center" >
-			 					<br/><br/>
-			 					<div class="row">
-			 						<div class="-col-md-12 text-center">
-			 							 <p:commandButton styleClass="ui-buttom-submit" value="ثبت "  update=":frmDT:dtList  frmNew" action="#{EquipmentMB.AddEdit()}"/>
-			 						 </div>
-			 					</div>
-			 					<br/>
-			 					<div class="row">
-			 						<div class="-col-md-12 text-center">
+			 				<div class="row text-center padding">
+			 						<div class="col-md-12">
+			 						 <p:commandButton styleClass="ui-buttom-submit" value="ثبت "  update=":frmDT:dtList  frmNew" action="#{EquipmentMB.AddEdit()}"/>
 			 							<!--  <p:commandButton styleClass="ui-buttom-submit" value="جدید"   />	 -->
 			 						 </div>
 			 					</div>

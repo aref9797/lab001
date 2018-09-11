@@ -28,106 +28,87 @@
 	 		 <p:messages styleClass="" id="messages"  showDetail="false" autoUpdate="true" closable="true" />
 	 		 
 	 		
-	 		  <!-- rwo1 -->
-	 		 
-	 		<div class="roww">
-	 			<div class="col-md-1"></div>
-	 			<div class="col-md-5">
-	 				<b class="outlabel">نام</b>
-       				<p:inputText styleClass="inputlabel"  style="width:300px" id="name" size="50" value="#{UserMB.user.name}" required="true" requiredMessage="فیلد نام نباید خالی باشد"></p:inputText>	
-	 			</div>
-	 			<div class="col-md-5">
-	 				<b class="outlabel">نام خانوادگی</b>
-       				<p:inputText styleClass="inputlabel"  style="width:300px" id="family" size="50" value="#{UserMB.user.family}" required="true" requiredMessage="فیلد نام خانوادگی نباید خالی باشد"></p:inputText>		
-	 			</div>
-	 		</div>
 	 		
-	 		<!-- row2 -->
-	 		<br/><br/><br/><br/><br/>
-	 		<div class="roww">
-	 			<div class="col-md-1"></div>
-	 			<div class="col-md-5 ">
-	 				<b class="outlabel">شماره تماس</b>
-       				<p:inputText styleClass="inputlabel" style="width:200px"  id="mobile" size="50" mask="99999999999" maxlength="11" value="#{UserMB.user.mobile}" required="true" requiredMessage="فیلد شماره تماس نباید خالی باشد">
-       				<p:inputText styleClass="inputlabel" style="width:50px" disabled="true" value="98+"></p:inputText>
-       				</p:inputText>	
-	 				
-	 			</div>
-	 			<div class="col-md-6">
-	 				<b class="outlabel">شماره ملی</b>
-       				<p:inputText styleClass="inputlabel" style="width:310px" id="Mellicode" size="50"  maxlength="10" value="#{UserMB.user.mellicode}" required="true" requiredMessage="فیلد شماره ملی نباید خالی باشد" >
-       					
-       				</p:inputText>		
-	 			</div>
-	 		</div>
-	 		
-	 		<!-- row3 -->
-	 		<br/><br/><br/><br/><br/>
-	 		<div class="roww">
-	 			<div class="col-md-1"></div>
-	 			<div class="col-md-5">
-	 				<b class="outlabel">نام کاربری</b>
-       				<p:inputText styleClass="inputlabel" style="width:250px" id="username" size="50" value="#{UserMB.user.username}" required="true" requiredMessage="فیلد نام کاربری نباید خالی باشد"></p:inputText>		
-	 			</div>
-	 			<div class="col-md-6">
-	 				<b class="outlabel">رمز عبور</b>
-       				<p:password styleClass="inputlabel" id="pass" value="#{UserMB.user.hpassword}" match="repass" validatorMessage="رمز عبور و تکرار رمز عبور باید یکسان باشد" required="true" requiredMessage="فیلد  رمز عبور نباید خالی باشد"></p:password>
+	 	
+			<div class="row">
+				<div class="col-md-6" style="padding-right: 200px">
+					<b class="outlabel">نام</b>
+					<br/>
+       				<p:inputText styleClass="inputlabel"  id="name" value="#{UserMB.user.name}" required="true" requiredMessage="فیلد نام نباید خالی باشد"/>
+       				
+     				<br/><br/>
+       				<b class="outlabel">شماره تماس</b>
+       				<br/>
+       				<p:inputText styleClass="inputlabel" style="width:200px"  id="mobile"  mask="99999999999" maxlength="11" value="#{UserMB.user.mobile}" required="true" requiredMessage="فیلد شماره تماس نباید خالی باشد"/>
+       				<p:inputText styleClass="inputlabel" style="width:50px" disabled="true" value="98+"/>
+       				
        				<br/><br/>
-       				<div class="form-group row">
-					        <label class="col-md-3 form-label">امنیت رمز عبور</label>
-					    	<div class="col-md-4" id="example-progress-bar-container" ></div>
-   					</div>
-	 			</div>
-	 			<br/><br/><br/>
-	 			<div class="col-md-6"></div>
-	 			<div class="col-md-6">
-	 				<b class="outlabel">تکرار رمز عبور</b>
-       				<p:password styleClass="inputlabel" id="repass" required="true" requiredMessage="فیلد  تکرار رمز عبور نباید خالی باشد"></p:password>		
-       				<img id="passicon" src="../resources/images/false.png" class="email-icon"></img>
-	 			</div>
-	 		</div>
-	 		
-	 		
-	 		
-	 		<!-- row4-->
-	 		<br/><br/><br/><br/><br/>
-	 		<div class="roww">
-	 			<div class="col-md-1"></div>
-	 			<div class="col-md-5 ">
-	 				<b class="outlabel"> ایمیل</b>
-       				<p:inputText styleClass="inputlabel" style="width:250px" id="email" size="50" value="#{UserMB.user.email}" required="true" requiredMessage="فیلد ایمیل نباید خالی باشد">
+       				<b class="outlabel"> ایمیل</b>
+       				<br/>
+       				<p:inputText styleClass="inputlabel"  id="email"  value="#{UserMB.user.email}" required="true" requiredMessage="فیلد ایمیل نباید خالی باشد">
 	       				<f:validateRegex pattern="^[_A-Za-z0-9-\+]+(\.[_A-Za-z0-9-]+)*@[A-Za-z0-9-]+(\.[A-Za-z0-9]+)*(\.[A-Za-z]{2,})$" />
 	       			</p:inputText>		
-	 			</div>
-	 			<div class="col-md-6">
-	 				<b class="outlabel">کد دانشجویی</b>
-	 				<b class="stnumber">(مخصوص دانشجویان )</b>
-       				<p:inputText styleClass="inputlabel" style="width:220px" id="stdcode" size="50" maxlength="9"  value="#{UserMB.user.stdcode}">
-       				</p:inputText>	
-	 			</div>
-	 		</div>
-	 		
-	 		
-	 		<!-- row5-->
-	 		<br/><br/><br/><br/><br/>
-	 		<div class="roww">
-	 			<div class="col-md-1"></div>
-	 			<div class="col-md-5 ">
-	 				<b class="outlabel" style="font-size: 15px" > نوع عضویت؟</b>
-	 				  <p:selectOneMenu styleClass="select" id="roleid" value="#{UserMB.user.aarole.id}" converter="javax.faces.Integer" style="width:125px">
+	       				
+	       			<br/><br/>
+	       			<b class="outlabel">رمز عبور</b>
+	       			<br/>
+       				<p:password styleClass="inputlabel" id="pass" value="#{UserMB.user.hpassword}" match="repass" validatorMessage="رمز عبور و تکرار رمز عبور باید یکسان باشد" required="true" requiredMessage="فیلد  رمز عبور نباید خالی باشد"></p:password>
+       				
+       				<!-- 
+       				<div class="form-group ">
+					    	<div  id="example-progress-bar-container" ></div>
+   					</div>
+	       			 -->
+       				
+       				
+       				<br/><br/>
+       				<b class="outlabel" style="font-size: 15px" > نوع عضویت؟</b>
+       				<br/>
+	 				  <p:selectOneMenu styleClass="select" id="roleid" value="#{UserMB.user.aarole.id}" converter="javax.faces.Integer" style="width:200px">
 				         
-				            <f:selectItem itemLabel="دانشجو" itemValue="4" />
-				            <f:selectItem itemLabel="استاد" itemValue="5" />
+				            <f:selectItem itemLabel="دانشجو دانشگاه بناب" itemValue="4" />
+				            <f:selectItem itemLabel="استاد دانشگاه بناب " itemValue="5" />
 				            <f:selectItem itemLabel="مهمان" itemValue="6" />
 				            
      				</p:selectOneMenu>
+	       			
+				</div>
+				
+				<div class="col-md-6">
+	 				<b class="outlabel">نام خانوادگی</b>
+	 				<br/>
+       				<p:inputText styleClass="inputlabel" id="family"  value="#{UserMB.user.family}" required="true" requiredMessage="فیلد نام خانوادگی نباید خالی باشد"/>		
        				
-	 			</div>
-	 		
-	 		</div>
-	 		
-	 		
-	 		<br/><br/><br/><br/><br/>
+       				<br/><br/>
+	 				<b class="outlabel">شماره ملی</b>
+	 				<br/>
+       				<p:inputText styleClass="inputlabel" id="Mellicode"  maxlength="10" value="#{UserMB.user.mellicode}" required="true" requiredMessage="فیلد شماره ملی نباید خالی باشد" />
+       				
+       				<br/><br/>
+	 				<b class="outlabel">نام کاربری</b>
+	 				<br/>
+       				<p:inputText styleClass="inputlabel"  id="username"  value="#{UserMB.user.username}" required="true" requiredMessage="فیلد نام کاربری نباید خالی باشد" />		
+       				
+       				<br/><br/>
+       				<b class="outlabel">تکرار رمز عبور</b>
+       				<br/>
+       				<p:password styleClass="inputlabel" id="repass" required="true" requiredMessage="فیلد  تکرار رمز عبور نباید خالی باشد"/>		
+       				<img id="passicon" src="../resources/images/false.png" class="email-icon"></img>
+       				
+       				
+	       			<br/><br/>
+       				<b class="outlabel">کد دانشجویی</b>
+	 				<b class="stnumber">(مخصوص دانشجویان )</b>
+	 				<br/>
+       				<p:inputText styleClass="inputlabel"  id="stdcode"  maxlength="9"  value="#{UserMB.user.stdcode}"/>
+       				
+       				
+       				
+       				
+				</div>
+			</div>
+			
+			<br/><br/><br/>
 	 		<div class="row text-center">
 	 			 <div class="col-md-12">
 	 			 	<p:commandButton id="register" styleClass="ui-submit" value="ثبت نام" action="#{UserMB.AddEdit()}"/>
