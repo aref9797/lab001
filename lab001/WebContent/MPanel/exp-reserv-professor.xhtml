@@ -17,52 +17,54 @@
 	    <p:growl id="growl" sticky="true" showDetail="true"/>
 	 
 	    <p:wizard nextLabel="بعدی" widgetVar="wiz">
-	        <p:tab  title="انتخاب آزمتیش" >
+	        <p:tab  title="انتخاب آزمایش" >
 	        <p:panel styleClass="text-center">
 	        	<b class="headerline">لیست آزمایش ها</b>
 		      
 		        <p:messages for="input" display="text" />
 		        <br/>
-		        <p:dataTable var="lab" value="#{labmb.lablist}" reflow="true"  id="table" widgetVar="labtable"> 
+		        <p:dataTable var="exp" value="#{ExperimentMB.baseEntityList}" reflow="true"  id="table" widgetVar="labtable"> 
 						  
-						    <p:column filterStyleClass="inputsearch" headerText="آزمایش" filterMatchMode="contains" filterBy="#{lab.name}">
-						    	<b>#{lab.name}</b>
+						    <p:column filterStyleClass="inputsearch" headerText="آزمایش" filterMatchMode="contains" filterBy="#{exp.name}">
+						    	<b>#{exp.name}</b>
 						    </p:column>
 						 
-						    <p:column  headerText="نام آزمایشگاه" filterMatchMode="contains" filterBy="#{lab.name}">
+						    <p:column  headerText="نام آزمایشگاه" filterMatchMode="contains" filterBy="#{exp.labname}">
 						     <f:facet name="filter">
 				                <p:selectOneMenu  effect="fold" onchange="PF('labtable').filter()"  styleClass="inputsearch"> >
 				                  	<f:selectItem itemLabel="یکی را انتخاب کنید"  />
-					           		 <f:selectItems value="#{labmb.lablist}" var="lab1" itemLabel="#{lab1.name}"/>
+					           		 <f:selectItems value="#{LaboratoryMB.baseEntityList}" var="lab" itemLabel="#{lab.name}"/>
 				                </p:selectOneMenu>
 				            </f:facet>
-						    <b></b>
+						    <b>#{exp.labname}</b>
 						    </p:column>
 						 	<p:column headerText="قیمت" style="width:15%;">
-						    	<b></b>
+						    	<b>#{exp.price}</b>
 						    </p:column>
 						 
 						 	 <p:column headerText="عملیات" style="width: 15%">
-						 	 	<p:commandLink onclick="PF('wiz').next()"   title="View Detail" value="انتخاب" styleClass="selectlink">
-				                    <f:setPropertyActionListener value="#{lab}" target="#{labmb.ls}" />
-		             		   </p:commandLink>
+						 	 	<p:commandLink onclick="PF('wiz').next()" process="@this" update="@form" title="View Detail" value="انتخاب" styleClass="selectlink">
+				                    <f:setPropertyActionListener value="#{exp.name}" target="#{ExperimentMB.baseEntity.name}"/>
+				                    <f:setPropertyActionListener value="#{exp.labname}" target="#{ExperimentMB.baseEntity.labname}"/>
+				                    <f:setPropertyActionListener value="#{exp.price}" target="#{ExperimentMB.baseEntity.price}"/>
+				              	</p:commandLink>
 						    </p:column>
 						 	
 					</p:dataTable>
 					</p:panel>
 	        </p:tab>
 	 
-	        <p:tab id="address" title="تکمیل اطلاعات">
-	     		<p:panel styleClass="infoshow">
+	        <p:tab id="address" title="تکمیل اطلاعات" >
+	     		<p:panel id="mypanel" styleClass="infoshow">
 	     			<b>نام آزمایش</b>
-	     			<p:inputText  disabled="true" styleClass="inputdisable"/>
+	     			<p:inputText  value="#{ExperimentMB.baseEntity.name}" readonly="true" styleClass="inputdisable"/>
 	     			<a onclick="PF('wiz').back()" href="#" >   تغییر</a>
 	     			<br/><br/>
 	     			<b>نام آزمایشگاه</b>
-	     			<p:inputText  disabled="true"/>
+	     			<p:inputText value="#{ExperimentMB.baseEntity.labname}"  readonly="true" styleClass="inputdisable"/>
 	     			<br/><br/>
 	     			<b>قیمت</b>
-	     			<p:inputText  disabled="true"/>
+	     			<p:inputText value="#{ExperimentMB.baseEntity.price}" readonly="true" styleClass="inputdisable"/>
 	     			<b>تومان</b>
        				 
        				 <br/><br/>
@@ -70,7 +72,7 @@
        				 
        				 <div class="row">
        				 	<div class="col-md-12 text-center">
-       				 		<p:commandButton styleClass="ui-buttom-submit" value="ثبت "   />
+       				 		<p:commandButton styleClass="ui-buttom-submit" value="پرداخت "  actionListener="#{ExpReservationMB.Add}" />
        				 	</div>
        				 </div>
 	     		</p:panel>

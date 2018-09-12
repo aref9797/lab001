@@ -37,11 +37,6 @@ public class ExperimentServiceImpl extends baseUCServiceImpl<Experiment> impleme
 		
 		if(entity.getPrice() <= 0)
 			throw new gException("قیمت آزمایش نمی تواند صفر یا کمتر از صفر باشد");
-		
-//		List<Laboratory> ll = em.createNamedQuery("Laboratory.findbyname").setParameter("labname", entity.getLaboratory().getName()).getResultList();
-//		
-//		entity.getLaboratory().setId(ll.get(0).getId());
-//		System.out.println(ll.get(0).getId() + "");
 
 		return super.Add(entity);
 	}
@@ -78,30 +73,4 @@ public class ExperimentServiceImpl extends baseUCServiceImpl<Experiment> impleme
 		super.Remove(entity);
 	}
 
-
-	@SuppressWarnings("unchecked")
-	@Override
-	public List<Experiment> exp_status() 
-	{
-		List<Experiment> lr = (List<Experiment>) em.createQuery("from Experiment a where a.status = 'false' ").getResultList();
-		return lr;
-	}
-
-
-	@Override
-	@Transactional
-	public void Exp_Confirm(Experiment exp) {
-		
-		exp.setStatus(true);
-		try 
-		{
-			super.Edit(exp);
-		} 
-		catch (Exception ex) 
-		{
-			ex.printStackTrace();
-		}
-		
-	}
-	
 }

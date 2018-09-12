@@ -105,7 +105,7 @@
 					    	<p:commandLink  styleClass="" ajax="true"  update=":frmNew" process="@this" action="#{ExperimentMB.setSelectedRow(exp)}">
 								<img class="edit" src="../resources/images/edit.png"/>
 							</p:commandLink>
-					    	<p:commandLink  styleClass="" ajax="true"  update="@form" process="@this" action="#{ExperimentMB.Remove(exp)}">
+					    	<p:commandLink  styleClass="" ajax="true"  update="@form :frmNew" process="@this" action="#{ExperimentMB.Remove(exp)}">
 					    		<img class="delete" src="../resources/images/delete.png"/>
 					    		<p:confirm header="تائید حذف رکورد انتخابی" message="آیا از حذف رکورد انتخابی مطمئن هستید؟" icon="ui-icon-alert" />
 					    	</p:commandLink>

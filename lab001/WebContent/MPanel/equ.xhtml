@@ -102,7 +102,7 @@
 					 	 			 	<img class="edit" src="../resources/images/edit.png"/>   
 					 	 		</p:commandLink>
 					 	
-					    	<p:commandLink  styleClass="" ajax="true" type="submit" update="@form" process="@this" action="#{EquipmentMB.Remove(equ)}">
+					    	<p:commandLink  styleClass="" ajax="true" type="submit" update="@form :frmNew" process="@this" action="#{EquipmentMB.Remove(equ)}">
 					    		<img class="delete" src="../resources/images/delete.png"/>    
 					    		<p:confirm header="تائید حذف رکورد انتخابی" message="آیا از حذف رکورد انتخابی مطمئن هستید؟" icon="ui-icon-alert" />
 					    	</p:commandLink>

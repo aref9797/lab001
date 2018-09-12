@@ -56,11 +56,6 @@ public class ExperimentMB extends baseManagedBeanController<Experiment> implemen
 		return labuc.FindAll("id" , JPAOp.Asc);
 	}
 	
-	public List<Experiment> Accept_exp()
-	{
-		return expservice.exp_status();
-	}
-	
 	//=========================================================
 	
 	public List<Aauser> find_exp_user()
@@ -139,23 +134,6 @@ public class ExperimentMB extends baseManagedBeanController<Experiment> implemen
 		{
 			CallCatch(ex);
 		}
-	}
-	
-	//==================================================exp_Confirm
-	
-	public void experiment_confirm(Experiment exp)
-	{
-		try
-		{
-			expservice.Exp_Confirm(exp);
-			ResetBaseObject();
-			JSFHelper.addInfoMessage("عملیات تایید اطلاعات با موفقیت انجام شد.");
-		} 
-		catch (Exception ex)
-		{
-			CallCatch(ex);
-		}
-		
 	}
 	
 	//===========================================================
