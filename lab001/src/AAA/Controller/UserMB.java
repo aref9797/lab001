@@ -100,6 +100,25 @@ public class UserMB extends baseManagedBean implements Serializable
 		return userService.accept_professor();
 	}
 	
+	//=========================================================ProfessorCharge
+	
+	public List<Aauser> AcceptProfessorCharge()
+	{
+		return userService.find_acceptprofessor();
+	}
+	
+	public void ProfessorCharge(Aauser user , Integer charg)
+	{
+		try 
+		{
+			userService.Professor_Charge(user, charg);
+		} 
+		catch (Exception ex) 
+		{
+			CallCatch(ex);
+		}
+	}
+	
 	//=========================================================
 	
 	public void userAccept(Aauser user)

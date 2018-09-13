@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<ui:composition template="../templates/WelcomeLayout.xhtml"
+<ui:composition template="../../templates/WelcomeLayout.xhtml"
      xmlns="http://www.w3.org/1999/xhtml"
      xmlns:f="http://java.sun.com/jsf/core"
      xmlns:h="http://java.sun.com/jsf/html"
@@ -13,13 +13,14 @@
 	<h:form>
 	 		
 			
-			
+			 <p:messages styleClass="" id="messages"  showDetail="false" autoUpdate="true" closable="true" />
 			 <br/> <br/> <br/>
 			<div class="row">
 				<div class="col-md-4"></div>
+				
 				<div class="col-md-6">
 	 				<b class="outlabel">نام کاربری</b>
-       				<p:inputText styleClass="inputlabel" style="width:200px" id="username" size="50" value="#{LoginMB.username}" ></p:inputText>	
+       				<p:inputText styleClass="inputlabel" style="width:200px" id="username" size="50" value="#{LoginMB.username}" required="true" requiredMessage="فیلد نام کاربری نباید خالی باشد"></p:inputText>	
 				</div>
 			</div>
 			 <br/> <br/> <br/>

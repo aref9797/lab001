@@ -1,0 +1,53 @@
+<ui:composition template="../../templates/Panel.xhtml"
+     xmlns="http://www.w3.org/1999/xhtml"
+     xmlns:f="http://java.sun.com/jsf/core"
+     xmlns:h="http://java.sun.com/jsf/html"
+     xmlns:ui="http://java.sun.com/jsf/facelets"
+     xmlns:p="http://primefaces.org/ui">
+     
+<ui:define name="content">
+
+	 <h:outputScript library="js" name="scroll.js"></h:outputScript>
+	 <h:outputStylesheet library="css" name="Mpanel_style.css"></h:outputStylesheet>
+
+<div id="scroll"> 		
+	<h:form id="frmNew">
+	 	<div class="col-md-2"></div>
+	 	<div class="col-md-8">
+	 		<div class="box">
+	 			<div id="title">
+	 				<b>مدیریت سطوح دسترسی</b>
+	 			</div>
+	 			<div class="contant" >
+	 				<div class="row">
+	 					<DIV class="col-md-12 text-center">
+							
+							<p:selectOneMenu id="role" value="#{AccessListMB.selectedRole.id}" effect="fold" valueChangeListener="#{AccessListMB.RoleChange}">						
+								<p:ajax update="checklist"/>
+								<f:selectItems value="#{AccessListMB.roleList}" var="bb" itemLabel="#{bb.name}" itemValue="#{bb.id}" />
+							</p:selectOneMenu>						
+							
+							<br/><br/>
+							
+							<p:selectManyCheckbox id="checklist" value="#{AccessListMB.selectedpageList}" layout="grid" columns="1" styleClass="">
+					        	<f:selectItems value="#{AccessListMB.pageList}" var="page" itemLabel="#{page.name}" itemValue="#{page.id}" />
+					    	</p:selectManyCheckbox>
+					
+							<div class="row padding">
+								<div class="-col-md-12 text-center">
+										<p:commandButton styleClass="ui-buttom-submit" value="ثبت مجوز دسترسی ها "  action="#{AccessListMB.Save()}" />
+								</div>
+							</div>	
+							
+							<p:messages styleClass="" id="messages"  showDetail="false" autoUpdate="true" closable="true" />
+					</DIV>
+				</div>
+			</div>
+		</div>
+	</div>
+
+</h:form>
+</div>
+    
+</ui:define>
+</ui:composition>

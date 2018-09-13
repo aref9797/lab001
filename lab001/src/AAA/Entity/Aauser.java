@@ -51,6 +51,8 @@ public class Aauser implements Serializable {
 	private String type;
 
 	private String username;
+	
+	private Integer charge;
 
 	//bi-directional many-to-one association to Aasession
 	@OneToMany(mappedBy="aauser")
@@ -166,6 +168,14 @@ public class Aauser implements Serializable {
 
 	public void setUsername(String username) {
 		this.username = username;
+	}
+
+	public Integer getCharge() {
+		return charge;
+	}
+
+	public void setCharge(Integer charge) {
+		this.charge = charge;
 	}
 
 	public List<Aasession> getAasessions() {

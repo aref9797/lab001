@@ -86,7 +86,7 @@ public class AccessListMB extends baseManagedBean implements Serializable
 		try
 		{
 			accesslistService.Add(roleId, selectedpageList);
-			JSFHelper.addInfoMessage("عملیات ثبت / ویرایش اطلاعات با موفقیت انجام شد");
+			JSFHelper.addInfoMessage("عملیات ثبت  اطلاعات با موفقیت انجام شد");
 		}
 		catch (Exception ex)
 		{

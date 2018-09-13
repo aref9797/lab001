@@ -29,7 +29,7 @@ public class Aapage implements Serializable {
 	private String url;
 
 	//bi-directional many-to-one association to Aaaccesslist
-	@OneToMany(mappedBy="aapage")
+	@OneToMany(mappedBy="aapage" , cascade = CascadeType.REMOVE)
 	private List<Aaaccesslist> aaaccesslists;
 
 	//bi-directional many-to-one association to Aapagecat

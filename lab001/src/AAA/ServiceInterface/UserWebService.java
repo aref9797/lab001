@@ -17,5 +17,6 @@ public interface UserWebService extends baseUCService<Aauser>
 	public List<Aauser> accept_professor();
 	public void UserACC(Aauser user);
 	public List<Aauser> find_user_exp();
-
+	public List<Aauser> find_acceptprofessor();
+	public void Professor_Charge(Aauser user , Integer money);
 }
