@@ -14,6 +14,7 @@
 	
 	<h:body>
 	<h:form>
+			<f:event listener="#{LoadPageMB.checkPageAccess()}" type="preRenderView"/>
 			<p:menu model="#{LoadPageMB.userMenu}" styleClass=""/>
     </h:form>
     </h:body>

@@ -123,6 +123,4 @@ public class RoleMB extends baseManagedBean implements Serializable
 		this.roleList = roleList;
 	}
 
-
-
 }

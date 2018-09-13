@@ -2,6 +2,7 @@
 package AAA.Service;
 
 import baseService.baseUCServiceImpl;
+import common.exception.gException;
 
 import java.util.List;
 
@@ -14,6 +15,29 @@ import AAA.ServiceInterface.RoleWebService;
 @Service
 public class RoleServiceImpl extends baseUCServiceImpl<Aarole> implements RoleWebService
 {
+	
+	@Override
+	@Transactional
+	public String Add(Aarole entity) throws Exception, gException {
+		// TODO Auto-generated method stub
+		return super.Add(entity);
+	}
+	
+	
+	@Override
+	@Transactional
+	public Aarole Edit(Aarole entity) throws Exception, gException {
+		// TODO Auto-generated method stub
+		return super.Edit(entity);
+	}
+	
+	@Override
+	@Transactional
+	public void Remove(Aarole entity) throws Exception, gException {
+		// TODO Auto-generated method stub
+		super.Remove(entity);
+	}
+	
 	@SuppressWarnings("unchecked")
 	@Override
 	@Transactional
