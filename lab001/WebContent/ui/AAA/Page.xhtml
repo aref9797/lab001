@@ -1,0 +1,135 @@
+<ui:composition template="../../templates/Panel.xhtml"
+     xmlns="http://www.w3.org/1999/xhtml"
+     xmlns:f="http://java.sun.com/jsf/core"
+     xmlns:h="http://java.sun.com/jsf/html"
+     xmlns:ui="http://java.sun.com/jsf/facelets"
+     xmlns:p="http://primefaces.org/ui">
+	
+<ui:define name="content">
+	
+	 <h:outputStylesheet library="css" name="Mpanel_style.css"></h:outputStylesheet>
+	 <h:outputStylesheet library="css" name="tabel_style.css"></h:outputStylesheet>
+	 
+	 <h:outputScript library="js" name="scroll.js"></h:outputScript>
+	 
+<div id="scroll"> 		
+	<h:form id="frmNew" enctype="multipart/form-data">
+	 	<div class="col-md-2"></div>
+	 	<div class="col-md-8">
+	 		<div class="box">
+	 			<div id="title">
+	 				<b>مدیریت صفحات سیستم</b>
+	 			</div>
+	 			<div class="contant" >
+	 				<div class="row">
+	 					
+		 				<p:growl id="messages"  showDetail="true" life="4000"/>		
+										           
+							<div class="col-md-6">            
+							    <b>نام فارسی صفحه :</b>
+							 	<br/>
+							    <p:inputText styleClass="inputlabel" id="name" maxlength="199" value="#{PageMB.aapage.name}"
+							      	required="true" requiredMessage="فیلد نام فارسی صفحه نباید خالی باشد">
+							     </p:inputText>
+							     <br/><br/>
+										
+								<b>آدرس صفحه :</b>
+							     <br/>
+							     <p:inputText styleClass="inputlabel" dir="ltr" id="url" maxlength="299" value="#{PageMB.aapage.url}" 
+							           required="true" requiredMessage="فیلد آدرس صفحه نباید خالی باشد">
+							      </p:inputText>
+							      <br/><br/>
+							            
+							       <b>دسته منو :</b>
+									<br/>
+									<p:selectOneMenu id="pagecat" value="#{PageMB.aapage.aapagecat.id}"  effect="fold">
+										<f:selectItem itemLabel="یکی را انتخاب کنید" itemValue=""  />
+										<f:selectItems value="#{PageMB.FindAll_Aapagecat()}" var="bb" itemLabel="#{bb.name}" itemValue="#{bb.id}" />
+									</p:selectOneMenu>
+						       </div>
+						            
+						       <div class="col-md-6">
+							      <b>نام انگلیسی صفحه :</b>
+							 	  <br/>
+							      <p:inputText styleClass="inputlabel" dir="ltr" id="pagename" maxlength="199" value="#{PageMB.aapage.pagename}"
+							            required="true" requiredMessage="فیلد نام انگلیسی صفحه نباید خالی باشد">
+							       </p:inputText>
+								 	<br/><br/>
+						
+							        <b>ترتیب نمایش :</b>
+							        <br/>
+							        <p:inputMask styleClass="inputlabel" maxlength="4" id="orders"  value="#{PageMB.aapage.orders}"
+							            	required="true" requiredMessage="ترتیب نمایش نباید خالی باشد" validatorMessage="فقط یک رقم میتواند باشد">
+							            	<p:keyFilter regEx="/[0-9_]/i" />
+							        </p:inputMask>
+									<br/><br/>		
+								</div>
+											
+									
+							</div>
+
+								<div class="row padding">
+									<div class="-col-md-12 text-center">
+										<p:commandButton styleClass="ui-buttom-submit" value="ثبت "  update=":frmDT:dtList  frmNew" action="#{PageMB.AddEdit()}" />
+						 			</div>
+						 		</div>				
+										
+					
+					</div>
+				</div>
+			</div>	       
+
+</h:form>
+
+<h:form id="frmDT">
+	<div class="row">
+		<DIV class="col-md-12 text-center">
+	
+	        <p:dataTable dir="rtl" id="dtList" value="#{PageMB.aapageList}" var="bb" reflow="true">		
+		
+	            <p:column headerText="نام فارسی صفحه"  style="text-align: center;width:15%;" >
+	                <b>#{bb.name}</b>
+	            </p:column>
+	
+	            <p:column headerText="نام انگلیسی صفحه" style="text-align: center;width:15%;" >
+	                <b>#{bb.pagename}</b>
+	            </p:column>
+	
+	           <p:column headerText="آدرس صفحه"  style="text-align: center;width:15%;">
+	                <b>#{bb.url}</b>
+	            </p:column>
+	
+	            <p:column headerText="ترتیب نمایش"  style="text-align: center;width:14%;" >
+	             	<b>#{bb.orders}</b>
+	            </p:column>
+	
+	            <p:column headerText="دسته منو"  style="text-align: center;width:15%;" >
+	                <b>#{bb.aapagecat.name}</b>
+	            </p:column>
+	
+	
+	            <p:column headerText="عملیات" style="text-align: center;width: 10%">
+						 	  
+					<p:commandLink  styleClass="" ajax="true"  update=":frmNew" process="@this" actionListener="#{PageMB.setSelectedRow(bb)}">
+							<img class="edit" src="../resources/images/edit.png"/>
+					</p:commandLink>
+					<p:commandLink  styleClass="" ajax="true"  update="@form :frmNew" process="@this" actionListener="#{PageMB.Remove(bb)}" >
+						  	 <img class="delete" src="../resources/images/delete.png"/>
+						   	 <p:confirm header="تائید حذف رکورد انتخابی" message="آیا از حذف رکورد انتخابی مطمئن هستید؟" icon="ui-icon-alert" />
+					</p:commandLink>
+				 </p:column>		
+				
+	        </p:dataTable>
+	
+	
+			<p:confirmDialog global="true" showEffect="fade" hideEffect="fade" >
+		        <p:commandButton value="بلی" type="button" styleClass="ui-confirmdialog-yes" icon="ui-icon-check" />
+		        <p:commandButton value="خیر" type="button" styleClass="ui-confirmdialog-no" icon="ui-icon-close" />
+		    </p:confirmDialog>
+		</DIV>
+	</div>
+		
+</h:form>
+</div>    
+</ui:define>
+</ui:composition>

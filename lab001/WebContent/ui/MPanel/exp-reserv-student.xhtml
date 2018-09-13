@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<ui:composition template="../templates/Panel.xhtml"
+<ui:composition template="../../templates/Panel.xhtml"
      xmlns="http://www.w3.org/1999/xhtml"
      xmlns:f="http://java.sun.com/jsf/core"
      xmlns:h="http://java.sun.com/jsf/html"
@@ -54,25 +54,33 @@
 					</p:panel>
 	        </p:tab>
 	 
-	        <p:tab id="address" title="تکمیل اطلاعات" >
-	     		<p:panel id="mypanel" styleClass="infoshow">
+	        <p:tab id="address" title="تکمیل اطلاعات">
+	     		<p:panel styleClass="infoshow">
 	     			<b>نام آزمایش</b>
-	     			<p:inputText  value="#{ExperimentMB.baseEntity.name}" readonly="true" styleClass="inputdisable"/>
+	     			<p:inputText value="#{ExperimentMB.baseEntity.name}" readonly="true" styleClass="inputdisable"/>
 	     			<a onclick="PF('wiz').back()" href="#" >   تغییر</a>
 	     			<br/><br/>
 	     			<b>نام آزمایشگاه</b>
-	     			<p:inputText value="#{ExperimentMB.baseEntity.labname}"  readonly="true" styleClass="inputdisable"/>
+	     			<p:inputText value="#{ExperimentMB.baseEntity.labname}" readonly="true"/>
 	     			<br/><br/>
 	     			<b>قیمت</b>
-	     			<p:inputText value="#{ExperimentMB.baseEntity.price}" readonly="true" styleClass="inputdisable"/>
+	     			<p:inputText value="#{ExperimentMB.baseEntity.price}" readonly="true"/>
 	     			<b>تومان</b>
+	     			<br/><br/>
+	     			<b>  انتخاب استاد</b>
+	     			<p:selectOneMenu  effect="fold">
+					            <f:selectItem itemLabel="یکی را انتخاب کنید" itemValue=""  />
+					            <f:selectItems value="#{UserMB.AcceptProfessor()}" var="pro" itemLabel="#{pro.name}" itemValue="#{pro.name}" />
+       				 </p:selectOneMenu>
+       				 
+       				 
        				 
        				 <br/><br/>
        				 
        				 
        				 <div class="row">
        				 	<div class="col-md-12 text-center">
-       				 		<p:commandButton styleClass="ui-buttom-submit" value="پرداخت "  actionListener="#{ExpReservationMB.Add}" />
+       				 		 <p:commandButton type="submit" styleClass="ui-buttom-submit" value="ثبت " actionListener="#{ExpUserMB.Add}"  />
        				 	</div>
        				 </div>
 	     		</p:panel>

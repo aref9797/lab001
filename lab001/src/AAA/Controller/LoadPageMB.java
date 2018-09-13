@@ -32,6 +32,7 @@ public class LoadPageMB extends baseManagedBean implements Serializable
 
 	public LoadPageMB()
 	{
+		
 	}
 
 	public void checkPageAccess() throws IOException
@@ -39,6 +40,7 @@ public class LoadPageMB extends baseManagedBean implements Serializable
 		// check validity of Session (isLogined)
 		if (!SessionManager.sessionExist())
 		{
+			System.out.println("1");
 			SessionManager.Invalidate();
 			FacesContext.getCurrentInstance().getExternalContext()
 						.redirect(SessionManager.getRequest().getContextPath() + "/AAA/Login.xhtml");
@@ -54,7 +56,7 @@ public class LoadPageMB extends baseManagedBean implements Serializable
 			if (aa.getAapage().getUrl().equals(url))
 			{
 				SessionManager.setPageId(aa.getAapage().getId());
-
+				System.out.println("2");
 				// set page visit
 				pageVisitService.Add(aa.getAapage().getId(), SessionManager.getSessionId());
 

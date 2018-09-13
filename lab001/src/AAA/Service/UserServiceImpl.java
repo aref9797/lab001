@@ -53,7 +53,10 @@ public class UserServiceImpl extends baseUCServiceImpl<Aauser> implements UserWe
 		if(user.getAarole().getId() == 4)
 			user.setType("student");
 		if(user.getAarole().getId() == 5)
+		{
 			user.setType("profesor");
+			user.setCharge(0);
+		}
 		if(user.getAarole().getId() == 6)
 			user.setType("guest");
 			
@@ -115,6 +118,44 @@ public class UserServiceImpl extends baseUCServiceImpl<Aauser> implements UserWe
 		List<Aauser> lo = (List<Aauser>) em.createQuery("from Aauser a where a.type = 'profesor' and a.isaccept = 'false' ").getResultList();
 		return lo;
 	}
+	
+	@SuppressWarnings({ "unchecked"})
+	@Override
+	public List<Aauser> find_acceptprofessor() {
+		
+		List<Aauser> lo = (List<Aauser>) em.createQuery("from Aauser a where a.type = 'profesor' and a.isaccept = 'true' ").getResultList();
+		return lo;
+	}
+	
+	
+	//===================================================================ProfessorCharge
+	
+	@SuppressWarnings("unchecked")
+	@Override
+	public List<Aauser> accept_professor() 
+	{
+		List<Aauser> ch = (List<Aauser>) em.createQuery("from Aauser a where a.type = 'profesor' and a.isaccept = 'true' ").getResultList();
+		return ch;
+	}
+	
+	
+	@Override
+	@Transactional
+	public void Professor_Charge(Aauser user , Integer charg) 
+	{
+		user.setCharge(charg);
+		
+		try
+		{
+			super.Edit(user);
+		} 
+		catch (Exception ex) 
+		{
+			ex.printStackTrace();
+		}
+	}
+	
+	//===================================================================UserAcception
 
 	@Override
 	@Transactional
@@ -135,17 +176,8 @@ public class UserServiceImpl extends baseUCServiceImpl<Aauser> implements UserWe
 			ex.printStackTrace();
 		}
 	}
-
-	@SuppressWarnings("unchecked")
-	@Override
-	public List<Aauser> accept_professor() 
-	{
-		List<Aauser> lo = (List<Aauser>) em.createQuery("from Aauser a where a.type = 'profesor' and a.isaccept = 'true' ").getResultList();
-		return lo;
-	}
 	
-	
-	//================================================================================================
+	//===================================================================
 
 	@SuppressWarnings("unchecked")
 	@Transactional
@@ -156,5 +188,6 @@ public class UserServiceImpl extends baseUCServiceImpl<Aauser> implements UserWe
 						"and(a.id IN (select p from Experiment p))").getResultList();
 		return query;
 	}
+
 
 }

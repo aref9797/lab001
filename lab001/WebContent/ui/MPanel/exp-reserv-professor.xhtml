@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<ui:composition template="../templates/Panel.xhtml"
+<ui:composition template="../../templates/Panel.xhtml"
      xmlns="http://www.w3.org/1999/xhtml"
      xmlns:f="http://java.sun.com/jsf/core"
      xmlns:h="http://java.sun.com/jsf/html"
@@ -53,7 +53,7 @@
 					</p:dataTable>
 					</p:panel>
 	        </p:tab>
-	        
+	 
 	        <p:tab id="address" title="تکمیل اطلاعات" >
 	     		<p:panel id="mypanel" styleClass="infoshow">
 	     			<b>نام آزمایش</b>
@@ -72,7 +72,7 @@
        				 
        				 <div class="row">
        				 	<div class="col-md-12 text-center">
-       				 		<p:commandButton styleClass="ui-buttom-submit" value="پرداخت "   />
+       				 		<p:commandButton styleClass="ui-buttom-submit" value="پرداخت "  actionListener="#{ExpReservationMB.Add}" />
        				 	</div>
        				 </div>
 	     		</p:panel>

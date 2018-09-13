@@ -1,19 +1,16 @@
 <!DOCTYPE html>
-<ui:composition template="../templates/Panel.xhtml"
+<ui:composition template="../../templates/Panel.xhtml"
      xmlns="http://www.w3.org/1999/xhtml"
      xmlns:f="http://java.sun.com/jsf/core"
      xmlns:h="http://java.sun.com/jsf/html"
      xmlns:ui="http://java.sun.com/jsf/facelets"
      xmlns:p="http://primefaces.org/ui">
-
+     
 <ui:define name="content">
-	
-	
-	 <h:outputStylesheet library="css" name="Mpanel_style.css"/>
-	 <h:outputStylesheet library="css" name="tabel_style.css"/>
+	 <h:outputStylesheet library="css" name="Mpanel_style.css"></h:outputStylesheet>
+	 <h:outputStylesheet library="css" name="tabel_style.css"></h:outputStylesheet>
 	 
 	 <h:outputScript library="js" name="scroll.js"></h:outputScript>
-	
 	
 	<div class="row text-center">
 		<div class="col-md-12">
@@ -32,32 +29,19 @@
 					    	<b></b>
 					    </p:column>
 					 
-					    
-					 	<p:column headerText="نام درخواست دهنده" >
+					    <p:column headerText="نام آزمایشگاه">
 					    	<b></b>
 					    </p:column>
 					    
-					    <p:column headerText="نقش" >
-					    	<b></b>
-					    </p:column>
-					   
-					    <p:column headerText="شماره ملی" >
-					    	<b></b>
-					    </p:column>
-					   
-					    <p:column headerText="شماره تماس" >
+					    
+					 	<p:column headerText="نام مسئول آزمایشگاه" >
 					    	<b></b>
 					    </p:column>
 					    
-					     <p:column headerText="ایمیل" >
+					    <p:column headerText="وضعیت آزمایش">
 					    	<b></b>
 					    </p:column>
 					   
-					 	
-					 	 <p:column headerText="عملیات" style="width: 15%">
-					    	<p:commandButton  styleClass="ui-buttom-call" ajax="true" value="تماس گرفته شد" type="submit" uprocess="@this" action="#{ExperimentMB.setSelectedRow(exp)}"/>
-					    </p:column>
-					 	
 				</p:dataTable>
 				
 				<p:confirmDialog global="true" showEffect="fade" hideEffect="fade" styleClass="">

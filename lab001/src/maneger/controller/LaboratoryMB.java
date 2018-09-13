@@ -79,6 +79,8 @@ public class LaboratoryMB extends baseManagedBeanController<Laboratory> implemen
 				
 				filecreat file=new filecreat();
 				File f=file.creat(filename);
+//				
+//				moveWithFileNIO(filename);
 			}
 			if (isedit)
 				labservice.Edit(baseEntity);
@@ -119,7 +121,7 @@ public class LaboratoryMB extends baseManagedBeanController<Laboratory> implemen
 			CallCatch(ex);
 		}
 	}
-	
+		
 	//================================================================
 	private UploadedFile file;
 	 

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<ui:composition template="../templates/Panel.xhtml"
+<ui:composition template="../../templates/Panel.xhtml"
      xmlns="http://www.w3.org/1999/xhtml"
      xmlns:f="http://java.sun.com/jsf/core"
      xmlns:h="http://java.sun.com/jsf/html"
@@ -12,105 +12,98 @@
 	 
 	 <h:outputScript library="js" name="scroll.js"></h:outputScript>
 	 <p:accordionPanel activeIndex="2">
-		 <p:tab title="لیست دانشجویان تایید نشده" >
-		 
+		 <p:tab title="لیست اساتید تایید نشده" >
 		 <h:form>
 			 <div class="row">
 			 		<div class="box col-md-12">
 			 			<div  id="title">
-			 				<b>لیست دانشجویان تایید نشده</b>
+			 				<b>لیست اساتید  تایید نشده</b>
 			 			</div>
 			 			<div class="row contant">
-			 				<p:dataTable id="dtList" var="astd" value="#{UserMB.FindACCStudent()}" reflow="true"> 
+			 				<p:dataTable id="dtList" var="prof" value="#{UserMB.FindACCProfessor()}" reflow="true"  > 
 						    
 								    <p:column headerText="نام ">
-								    	<b>#{astd.name}</b>
+								    	<b>#{prof.name}</b>
 								    </p:column>
 								 
 								    <p:column headerText="نام خانوداگی">
-								    	<b>#{astd.family}</b>
+								    	<b>#{prof.family}</b>
 								    </p:column>
 								 	
 								 	 <p:column headerText="نام کاربری">
-								    	<b>#{astd.username}</b>
+								    	<b>#{prof.username}</b>
 								    </p:column>
 								 	
 								    <p:column headerText="ایمیل">
-								    	<b>#{astd.email}</b>
+								    	<b>#{prof.email}</b>
 								    </p:column>
 								 	
 								 	 <p:column headerText="شماره" >
-								    	<b>#{astd.mobile}</b>
+								    	<b>#{prof.mobile}</b>
 								    </p:column>
 								 	
 								 	 <p:column headerText="شماره ملی" >
-								    	<b>#{astd.mellicode}</b>
+								    	<b>#{prof.mellicode}</b>
 								    </p:column>
 								 	
-								 	 <p:column headerText="شماره دانشجویی" >
-								    	<b>#{astd.stdcode}</b>
-								    </p:column>
+								 	
 								 	
 								 	 <p:column headerText="عملیات" >
-								    	<p:commandLink   type="submit" update="dtList"  process="@this" action="#{UserMB.userAccept(astd)}">0
-								    		<img class="chek" src="../resources/images/chek.png"/>
+								    	<p:commandLink     type="submit" update="dtList"   process="@this" action="#{UserMB.userAccept(prof)}">
+								    		<img class="chek" src="../../resources/images/chek.png"/>
 								    	</p:commandLink>
-								    	<p:commandLink   type="submit" update="@form"  process="@this" action="#{UserMB.Remove(astd)}">
-								    			<img class="delete" src="../resources/images/delete.png"/>
+								    	<p:commandLink   type="submit" update="@form"  process="@this" action="#{UserMB.Remove(prof)}">
+								    		<img class="delete" src="../../resources/images/delete.png"/>
 								    		<p:confirm header="تائید حذف رکورد انتخابی" message="آیا از حذف رکورد انتخابی مطمئن هستید؟" icon="ui-icon-alert" />
 								    	</p:commandLink>
 								    </p:column>
 						 	
 							</p:dataTable>
+							
 								<p:confirmDialog global="true" showEffect="fade" hideEffect="fade" styleClass="">
 					     			<p:commandButton value="بلی" type="button" styleClass="ui-confirmdialog-yes" icon="ui-icon-check" />
 					     			<p:commandButton value="خیر" type="button" styleClass="ui-confirmdialog-no" icon="ui-icon-close" />
 		   						</p:confirmDialog>
-		   					
 			 			</div>
 			 		</div>
 			</div>
 			</h:form>
 		</p:tab>
 	<br/><br/><br/>
-		 <p:tab title="لیست دانشجویان" >
-		 
-		 <h:form id="frmDT">
+		 <p:tab title="لیست اساتید" >
+		 <h:form>
 			 <div class="row">
 			 		<div class="box col-md-12">
 			 			<div id="title">
-			 				<b>لیست دانشجویان</b>
+			 				<b>لیست اساتید </b>
 			 			</div>
 			 			<div class="row contant">
-			 				<p:dataTable id="alldt" var="std" value="#{UserMB.FindAllStudent()}" reflow="true"> 
+			 				<p:dataTable id="alldt" var="pro" value="#{UserMB.FindAllProfessor()}" reflow="true"  > 
 						    
 								    <p:column headerText="نام ">
-								    	<b>#{std.name}</b>
+								    	<b>#{pro.name}</b>
 								    </p:column>
 								 
 								    <p:column headerText="نام خانوداگی">
-								    	<b>#{std.family}</b>
+								    	<b>#{pro.family}</b>
 								    </p:column>
 								 
 								 	 <p:column headerText="نام کاربری">
-								    	<b>#{std.username}</b>
+								    	<b>#{pro.username}</b>
 								    </p:column>
 								 	
 								    <p:column headerText="ایمیل">
-								    	<b>#{std.email}</b>
+								    	<b>#{pro.email}</b>
 								    </p:column>
 								 	
 								 	 <p:column headerText="شماره" >
-								    	<b>#{std.mobile}</b>
+								    	<b>#{pro.mobile}</b>
 								    </p:column>
 								 	
 								 	 <p:column headerText="شماره ملی" >
-								    	<b>#{std.mellicode}</b>
+								    	<b>#{pro.mellicode}</b>
 								    </p:column>
 								 	
-								 	 <p:column headerText="شماره دانشجویی" >
-								    	<b>#{std.stdcode}</b>
-								    </p:column>
 							</p:dataTable>
 			 			</div>
 			 		</div>

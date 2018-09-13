@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<ui:composition template="../templates/Panel.xhtml"
+<ui:composition template="../../templates/Panel.xhtml"
      xmlns="http://www.w3.org/1999/xhtml"
      xmlns:f="http://java.sun.com/jsf/core"
      xmlns:h="http://java.sun.com/jsf/html"
@@ -47,7 +47,9 @@
 		 				<div class="col-md-6" >
 		 					<b>قیمت :</b> 
 		 					<br/>
-		 					<p:inputText style="width:80%;margin-left:0px" styleClass="ui-input" value="#{ExperimentMB.baseEntity.price}" required="true" requiredMessage="قیمت آزمایش نباید خالی باشد"></p:inputText>
+		 					<p:inputText style="width:80%;margin-left:0px" styleClass="ui-input" value="#{ExperimentMB.baseEntity.price}" required="true" requiredMessage="قیمت آزمایش نباید خالی باشد">
+		 					<p:keyFilter regEx="/[0-9_]/i" />
+		 					</p:inputText>
 		 					<b>تومان</b>
 		 					
 		 					<br/><br/>
@@ -59,7 +61,6 @@
 	 				<div class="row padding">
 						<div class="-col-md-12 text-center">
 							 <p:commandButton styleClass="ui-buttom-submit" value="ثبت "  update=":frmDT:dtList  frmNew" action="#{ExperimentMB.AddEdit()}" />
-							  <p:commandButton styleClass="ui-buttom-submit" value="جدید"   />
 		 				 </div>
 		 			</div>
 	 			</div>
@@ -93,7 +94,7 @@
 					    
 					    <p:column headerText="عکس" style="width: 15%">
 					    	<p:commandLink styleClass="" id="imageBtn"   >
-					    		<img class="seen" src="../resources/images/seen.png"/>
+					    		<img class="seen" src="../../resources/images/seen.png"/>
 					    	</p:commandLink>
 					   	 	<p:overlayPanel id="imagePanel" for="imageBtn" hideEffect="fade">
 					   	 		<p:graphicImage library="images" name="Experiment/#{exp.photo}"></p:graphicImage>
@@ -103,10 +104,10 @@
 					 	  <p:column headerText="عملیات" style="width: 15%">
 					 	  
 					    	<p:commandLink  styleClass="" ajax="true"  update=":frmNew" process="@this" action="#{ExperimentMB.setSelectedRow(exp)}">
-								<img class="edit" src="../resources/images/edit.png"/>
+								<img class="edit" src="../../resources/images/edit.png"/>
 							</p:commandLink>
 					    	<p:commandLink  styleClass="" ajax="true"  update="@form :frmNew" process="@this" action="#{ExperimentMB.Remove(exp)}">
-					    		<img class="delete" src="../resources/images/delete.png"/>
+					    		<img class="delete" src="../../resources/images/delete.png"/>
 					    		<p:confirm header="تائید حذف رکورد انتخابی" message="آیا از حذف رکورد انتخابی مطمئن هستید؟" icon="ui-icon-alert" />
 					    	</p:commandLink>
 					    </p:column>

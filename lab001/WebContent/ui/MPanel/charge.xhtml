@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<ui:composition template="../templates/Panel.xhtml"
+<ui:composition template="../../templates/Panel.xhtml"
      xmlns="http://www.w3.org/1999/xhtml"
      xmlns:f="http://java.sun.com/jsf/core"
      xmlns:h="http://java.sun.com/jsf/html"
@@ -7,39 +7,37 @@
      xmlns:p="http://primefaces.org/ui">
      
 <ui:define name="content">
+
 	 <h:outputStylesheet library="css" name="Mpanel_style.css"></h:outputStylesheet>
 	 <h:outputStylesheet library="css" name="tabel_style.css"></h:outputStylesheet>
 	 
 	 <h:outputScript library="js" name="scroll.js"></h:outputScript>
 	
-	
 	 
 	 <h:form id="frmDT">
 		 <div class="row">
 		 	<DIV class="col-md-12 text-center">
-		 		<p:dataTable id="dtList"   reflow="true"> 
+		 		<p:dataTable id="dtList" var="chr" value="#{UserMB.AcceptProfessorCharge()}" reflow="true"> 
 					    
 					    <p:column headerText="نام استاد">
-					    	<b>sve</b>
+					    	<b>#{chr.name}</b>
 					    </p:column>
 					 
 					 	 <p:column headerText= "نام کاربری">
-					    	<b></b>
+					    	<b>#{chr.username}</b>
 					    </p:column>
-					 	
-					 
+
 					    <p:column headerText= "شماره ملی">
-					    	<b></b>
-					    </p:column>
-					 	<p:column headerText="میزان اعتبار " style="width:15%;">
-					    	<b></b>
+					    	<b>#{chr.mellicode}</b>
 					    </p:column>
 					    
+					 	<p:column headerText="میزان اعتبار " style="width:15%;">
+					    	<b>#{chr.charge}</b>
+					    </p:column>
 					
-					 	
-					 	  <p:column headerText="افزایش اعتبار" style="width: 15%">
-					 	  	<p:inplace></p:inplace>
-					    	<p:commandButton  styleClass="ui-buttom-edit" ajax="true" value="تایید" type="submit"  process="@this" />
+					 	<p:column headerText="افزایش اعتبار" style="width: 15%">
+					 	  	<p:inplace id="charg"></p:inplace>
+					    	<p:commandButton  styleClass="ui-buttom-edit" ajax="true" value="تایید" type="submit" process="@this" actionListener="#{UserMB.ProfessorCharge(charg)}"/>
 					    	
 					    </p:column>
 					 	

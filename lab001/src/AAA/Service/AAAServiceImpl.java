@@ -64,6 +64,7 @@ public class AAAServiceImpl extends baseUCServiceImpl<Aauser> implements AAAWebS
 		aasession.setLogindate(gCal.getCurrentDateTime());
 		aasession.setCilent(SessionManager.getClientInfo());
 		aasession.setIsmanuallylogout(false);
+		
 
 //		em.merge(user);
 		em.persist(aasession);

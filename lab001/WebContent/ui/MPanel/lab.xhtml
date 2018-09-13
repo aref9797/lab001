@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<ui:composition template="../templates/Panel.xhtml"
+<ui:composition template="../../templates/Panel.xhtml"
      xmlns="http://www.w3.org/1999/xhtml"
      xmlns:f="http://java.sun.com/jsf/core"
      xmlns:h="http://java.sun.com/jsf/html"
@@ -24,7 +24,7 @@
 		 			</div>
 		 			<div class="contant">
 		 				<div class="row">
-		 					 <p:growl id="messages"  showDetail="true" life="7000"/>
+		 					 <p:growl id="messages"  showDetail="true" life="5000"/>
 		 					 <br/><br/>
 			 				
 			 				<div class="col-md-6">
@@ -46,7 +46,7 @@
 			 					<br/>
 		 						<p:selectOneMenu value="#{LaboratoryMB.baseEntity.responsible}" effect="fold">
 					           		 <f:selectItem itemLabel="یکی را انتخاب کنید" itemValue=""  />
-					           		 <f:selectItems value="#{LaboratoryMB.user_findAll()}" var="lab" itemLabel="#{lab.name}" itemValue="#{lab.name}" />
+					           		 <f:selectItems value="#{OperatorMB.baseEntityList}" var="op" itemLabel="#{op.name}" itemValue="#{op.name}" />
        						 	</p:selectOneMenu>
 		 						<br/><br/>
 			 				</div>
@@ -54,8 +54,6 @@
 		 				<div class="row padding">
 		 					<div class="col-md-12 text-center">
 			 					 <p:commandButton type="submit" value="ثبت "  ajax="false"  actionListener="#{LaboratoryMB.AddEdit}" styleClass="ui-buttom-submit" />
-			 					 
-			 					  <p:commandButton type="submit" value="جدید" process="@this" update=":frmNew"/> 
 			 				</div>
 		 				</div>
 		 			</div>
@@ -87,7 +85,7 @@
 					 
 					    <p:column headerText="عکس" style="width: 15%">
 					    	<p:commandLink styleClass="" id="imageBtn"  type="button" >
-					    		<img class="seen" src="../resources/images/seen.png"/>
+					    		<img class="seen" src="../../resources/images/seen.png"/>
 					    	</p:commandLink>
 					   	 	<p:overlayPanel id="imagePanel" for="imageBtn" hideEffect="fade">
 					   	 		<p:graphicImage library="images" name="Laboratory/#{lab.photo}"></p:graphicImage>
@@ -96,10 +94,10 @@
 					 
 					 	 <p:column headerText="عملیات" style="width: 15%">
 					    	<p:commandLink  styleClass="" ajax="true"  type="submit" update=":frmNew" process="@this" action="#{LaboratoryMB.setSelectedRow(lab)}">
-					    		<img class="edit" src="../resources/images/edit.png"/>
+					    		<img class="edit" src="../../resources/images/edit.png"/>
 					    	</p:commandLink>
 					    	<p:commandLink  styleClass="" ajax="true"  type="submit" update="@form :frmNew" process="@this" action="#{LaboratoryMB.Remove(lab)}">
-					    		<img class="delete" src="../resources/images/delete.png"/>
+					    		<img class="delete" src="../../resources/images/delete.png"/>
 					    		<p:confirm header="تائید حذف رکورد انتخابی" message="آیا از حذف رکورد انتخابی مطمئن هستید؟" icon="ui-icon-alert" />
 					    	</p:commandLink>
 					    </p:column>
