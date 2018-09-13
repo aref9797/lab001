@@ -23,8 +23,9 @@ public class AAAServiceImpl extends baseUCServiceImpl<Aauser> implements AAAWebS
 {
 
 
+	//=======================================================================================Login
 
-	//UC : Login
+	
 	@SuppressWarnings("unchecked")
 	@Override
 	@Transactional
@@ -76,9 +77,8 @@ public class AAAServiceImpl extends baseUCServiceImpl<Aauser> implements AAAWebS
 	}// end of Login
 
 
+//========================================================================================Logout
 
-
-	//UC : Logout
 	@Override
 	@Transactional
 	public void Logout()
@@ -96,9 +96,9 @@ public class AAAServiceImpl extends baseUCServiceImpl<Aauser> implements AAAWebS
 	}
 
 
+	//===================================================================================ChangePassword
 
-
-	//UC : ChangePassword
+	
 	@SuppressWarnings("unchecked")
 	@Override
 	@Transactional
@@ -138,8 +138,9 @@ public class AAAServiceImpl extends baseUCServiceImpl<Aauser> implements AAAWebS
 
 
 
+	//================================================================================ChangeProfile
 
-	//UC : ChangeProfile
+
 	@Override
 	@Transactional
 	public void ChangeProfile(ProfileUIModel profileUIModel)
@@ -153,8 +154,10 @@ public class AAAServiceImpl extends baseUCServiceImpl<Aauser> implements AAAWebS
 		aasession.getAauser().setMobile(profileUIModel.getMobile());
 	}
 
+	
+	//===================================================================================ProfileUIModel
 
-	//UC : getProfile
+
 	@SuppressWarnings("unchecked")
 	@Override
 	@Transactional
@@ -191,7 +194,9 @@ public class AAAServiceImpl extends baseUCServiceImpl<Aauser> implements AAAWebS
 	}
 
 
-	//UC : LostPassword
+	//======================================================================LostPassword
+	
+	
 	@Override
 	@Transactional
 	public void LostPassword(String email) throws gException
@@ -221,6 +226,8 @@ public class AAAServiceImpl extends baseUCServiceImpl<Aauser> implements AAAWebS
 		SendEmail em = new SendEmail(email, "آزمایشگاه مرکزی دانشگاه بناب", body);
 	}
 
+	//=================================================================================HitPassConfirmation
+	
 	@SuppressWarnings("unchecked")
 	@Transactional
 	@Override

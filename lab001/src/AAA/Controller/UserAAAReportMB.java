@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.faces.bean.ManagedBean;
-import javax.faces.bean.ViewScoped;
+import javax.faces.bean.SessionScoped;
 
 import  AAA.ServiceInterface.PageVisitWebService;
 import  AAA.ServiceInterface.SessionWebService;
@@ -18,7 +18,7 @@ import  AAA.Entity.Aauser;
 import org.springframework.beans.factory.annotation.Autowired;
 
 @ManagedBean(name = "UserAAAReportMB")
-@ViewScoped
+@SessionScoped
 
 public class UserAAAReportMB extends baseManagedBean implements Serializable
 {

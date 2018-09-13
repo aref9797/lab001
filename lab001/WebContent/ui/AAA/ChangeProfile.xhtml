@@ -35,7 +35,7 @@
 	 						
 	 						<div class="row padding">
 									<div class="-col-md-12 text-center">
-										<p:commandButton styleClass="ui-buttom-submit" value="تغییر اطلاعات کاربری" ajax="false" type="submit" action="#{ChangeProfileMB.ChangeProfile()}" />
+										<p:commandButton styleClass="ui-buttom-submit" value="تغییر" ajax="false" type="submit" action="#{ChangeProfileMB.ChangeProfile()}" />
 						 			</div>
 						 		</div>		
 		
@@ -46,68 +46,7 @@
 	 		</div>
 	 	</div>
 
-
-
-
-
-
-
-
-
-
-
 </h:form>
 
 </ui:define>
 </ui:composition>
-
-	
-<!-- <h:form>
-
-			<p:messages styleClass="bnazaninbold18-red" id="messages" showDetail="false" autoUpdate="true" closable="true" />
-			<br/>
-
-			<h:panelGrid id="panel" columns="3">
-
-
-					<h:outputLabel for="mobile" value="شماره تلفن همراه:"
-						styleClass="bnazaninbold18" />
-					<p:inputMask style="width:250px !important;" maxlength="11"
-						id="mobile" value="#{ChangeProfileMB.profileUIModel.mobile}"
-						label="mobile" mask="99999999999" required="true"
-						styleClass="bnazaninbold18" requiredMessage="فيلد شماره تلفن همراه نبايد خالي باشد"
-						validatorMessage="مقدار اين فيلد  بايد  مانند 09143335555 باشد">
-					</p:inputMask>
-					<p:watermark for="mobile" value="تلفن همراه مانند 09145554187" />
-
-
-
-					<h:outputLabel for="email" value="پست الکترونیک:"
-						styleClass="bnazaninbold18" />
-					<p:inputText style="width:250px !important;" id="email"
-						required="true" size="40" requiredMessage="فيلد پست الکترونیک نبايد خالي باشد"
-						validatorMessage="فرمت پست الکترونیک را درست وارد کنید"
-						value="#{ChangeProfileMB.profileUIModel.email}">
-						<f:validateRegex
-							pattern="^[_A-Za-z0-9-\+]+(\.[_A-Za-z0-9-]+)*@[A-Za-z0-9-]+(\.[A-Za-z0-9]+)*(\.[A-Za-z]{2,})$" />
-					</p:inputText>
-					<p:watermark for="email" value=" مانند ali@gmail.com" />
-
-
-
-				</h:panelGrid>
-
-
-			<br />
-			<center>
-				<p:commandButton ajax="false" type="submit" value="تغییر اطلاعات کاربری"
-					action="#{ChangeProfileMB.ChangeProfile()}"
-					style="margin-top:12;margin-bottom:20px" />
-			</center>
-
-</h:form>
-
-
-
-</ui:define>
-</ui:composition> -->

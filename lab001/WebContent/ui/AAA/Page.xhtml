@@ -111,10 +111,10 @@
 	            <p:column headerText="عملیات" style="text-align: center;width: 10%">
 						 	  
 					<p:commandLink  styleClass="" ajax="true"  update=":frmNew" process="@this" actionListener="#{PageMB.setSelectedRow(bb)}">
-							<img class="edit" src="../resources/images/edit.png"/>
+							<img class="edit" src="../../resources/images/edit.png"/>
 					</p:commandLink>
 					<p:commandLink  styleClass="" ajax="true"  update="@form :frmNew" process="@this" actionListener="#{PageMB.Remove(bb)}" >
-						  	 <img class="delete" src="../resources/images/delete.png"/>
+						  	 <img class="delete" src="../../resources/images/delete.png"/>
 						   	 <p:confirm header="تائید حذف رکورد انتخابی" message="آیا از حذف رکورد انتخابی مطمئن هستید؟" icon="ui-icon-alert" />
 					</p:commandLink>
 				 </p:column>		

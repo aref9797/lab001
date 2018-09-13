@@ -70,7 +70,7 @@ public class LoginMB extends baseManagedBean implements Serializable
 	public void Logout() throws IOException
 	{
 		aaaService.Logout();
-		FacesContext.getCurrentInstance().getExternalContext().redirect(SessionManager.getRequest().getContextPath() + "Login.xhtml");
+		FacesContext.getCurrentInstance().getExternalContext().redirect(SessionManager.getRequest().getContextPath() + "/ui/AAA/Login.xhtml");
 	}
 
 
