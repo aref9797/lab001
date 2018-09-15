@@ -96,7 +96,10 @@ img.chek{
 	margin-left: 10px;
 }
 
-
+img.buy{
+	width:25px;
+	height:25px;
+}
 
 .ui-buttom-seen{
        background-image: none !important;

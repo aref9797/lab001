@@ -11,11 +11,11 @@
 
 	<h:head>
 	</h:head>
-	
+			<h:outputStylesheet library="css" name="leftmenu_style.css"/>
 	<h:body>
 	<h:form>
 			<f:event listener="#{LoadPageMB.checkPageAccess()}" type="preRenderView"/>
-			<p:menu model="#{LoadPageMB.userMenu}" styleClass=""/>
+			<p:menu  toggleable="true" model="#{LoadPageMB.userMenu}" styleClass=""/>
     </h:form>
     </h:body>
 </html>

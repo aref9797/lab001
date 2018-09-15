@@ -69,6 +69,21 @@ div.content{
     background: #b30000; 
 }
 
+
+div.menustyle{
+	overflow: auto;
+    margin: 10px 0px;
+    width: auto;
+    padding: 0px  0px;
+    margin-right: 5px;
+    
+	border-radius: 10px;
+}
+
+
+
+
+
 div.infplabel{
 	background-color:rgb(51, 89, 204);
     color: rgb(255, 255, 255);

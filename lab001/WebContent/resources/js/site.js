@@ -9,11 +9,11 @@ $(document).ready(function(){
 		{
 			if ($("#myForm\\:email").val()==$("#myForm\\:reemail").val())
 			{
-				$("#emailicon").attr("src","../resources/images/true.jpg");
+				$("#emailicon").attr("src","../../resources/images/true.jpg");
 			}
 			else
 			{
-				$("#emailicon").attr("src","../resources/images/false.png");
+				$("#emailicon").attr("src","../../resources/images/false.png");
 			}
 		}
 		
@@ -29,11 +29,11 @@ $(document).ready(function(){
 		{
 			if ($("#myForm\\:pass").val()==$("#myForm\\:repass").val())
 			{
-				$("#passicon").attr("src","../resources/images/true.jpg");
+				$("#passicon").attr("src","../../resources/images/true.jpg");
 			}
 			else
 			{
-				$("#passicon").attr("src","../resources/images/false.png");
+				$("#passicon").attr("src","../../resources/images/false.png");
 			}
 		}
 		

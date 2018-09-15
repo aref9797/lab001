@@ -40,13 +40,15 @@
 						    </p:column>
 						 	<p:column headerText="قیمت" style="width:15%;">
 						    	<b>#{exp.price}</b>
+						    	<b>تومان</b>
 						    </p:column>
 						 
-						 	 <p:column headerText="عملیات" style="width: 15%">
-						 	 	<p:commandLink onclick="PF('wiz').next()" process="@this" update="@form" title="View Detail" value="انتخاب" styleClass="selectlink">
+						 	 <p:column headerText="سفارش" style="width: 10%">
+						 	 	<p:commandLink onclick="PF('wiz').next()" process="@this" update="@form" title="View Detail">
 				                    <f:setPropertyActionListener value="#{exp.name}" target="#{ExperimentMB.baseEntity.name}"/>
 				                    <f:setPropertyActionListener value="#{exp.labname}" target="#{ExperimentMB.baseEntity.labname}"/>
 				                    <f:setPropertyActionListener value="#{exp.price}" target="#{ExperimentMB.baseEntity.price}"/>
+				                    <img src="../../resources/images/e-commerce.png"  class="buy"/>
 				              	</p:commandLink>
 						    </p:column>
 						 	

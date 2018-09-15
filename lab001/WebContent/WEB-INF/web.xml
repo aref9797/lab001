@@ -29,6 +29,13 @@
     <param-name>javax.faces.PROJECT_STAGE</param-name>
     <param-value>Development</param-value>
   </context-param>
+  
+  <context-param>
+     <param-name>primefaces.DIR</param-name>
+     <param-value>rtl</param-value>
+   </context-param>
+  
+  
   <filter>
     <filter-name>Character Encoding Filter</filter-name>
     <filter-class> common.CharacterEncodingFilter</filter-class>

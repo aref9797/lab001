@@ -1,0 +1,34 @@
+.ui-menu{
+	
+	background: rgb(208, 211, 220) !important;
+}
+.submenu{
+	background:#1B3764 !important;
+    border-radius:5px !important;  
+    
+   color: white !important;
+}
+.item{
+	padding: 7px 0px !important;
+}
+
+.ui-menuitem-text{
+   float: right !important;
+   color: white !important;
+ }
+.ui-menu .ui-widget-header h3{
+    float: right !important;
+    
+   color: white !important;
+ }
+ 
+.ui-icon {
+float: right!important;
+color: white !important;
+}
+.fa { 
+        color: orange !important;
+    }
+ .fa-caret-right{
+ 	 color: green !important;
+ }

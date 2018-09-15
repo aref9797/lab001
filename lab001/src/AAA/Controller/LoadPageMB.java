@@ -42,7 +42,7 @@ public class LoadPageMB extends baseManagedBean implements Serializable
 		{
 			SessionManager.Invalidate();
 			FacesContext.getCurrentInstance().getExternalContext()
-						.redirect(SessionManager.getRequest().getContextPath() + "/AAA/Login.xhtml");
+						.redirect(SessionManager.getRequest().getContextPath() + "/ui/AAA/Login.xhtml");
 			return;
 		}
 
@@ -91,17 +91,18 @@ public class LoadPageMB extends baseManagedBean implements Serializable
 				if (!(null == submenu))
 					model.addElement(submenu);
 				submenu = new DefaultSubMenu(catName);
+				submenu.setStyleClass("submenu");
 			}
 			DefaultMenuItem item = new DefaultMenuItem(aa.getAapage().getName());
 			//item.setIcon("ui-icon-home");
 			item.setOutcome(aa.getAapage().getUrl());
 			item.setAjax(false);
-			item.setStyleClass("LeftMenumenuitem");
+			item.setStyleClass("item");
 			submenu.addElement(item);
 		}
 		if (!(null == submenu))
 		{
-			DefaultMenuItem item = new DefaultMenuItem("خروج از سیستم");
+			DefaultMenuItem item = new DefaultMenuItem("");
 			//item.setIcon("ui-icon-home");
 			item.setCommand("#{LoginMB.Logout}");
 			item.setAjax(false);
