@@ -58,7 +58,6 @@ public class SendEmail
 	    
 	    }
 	  
-	  
 	    public class SMTPAuthenticator extends javax.mail.Authenticator
 	    {
 		    public PasswordAuthentication getPasswordAuthentication()

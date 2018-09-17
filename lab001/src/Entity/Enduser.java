@@ -2,7 +2,6 @@ package Entity;
 
 import java.io.Serializable;
 import javax.persistence.*;
-import java.util.List;
 
 
 /**
@@ -27,10 +26,6 @@ public class Enduser implements Serializable {
 	private Long hitpass;
 
 	private Boolean isactive;
-
-	//bi-directional many-to-one association to ExpReservaion
-	@OneToMany(mappedBy="enduser")
-	private List<ExpReservaion> expReservaions;
 
 	//bi-directional one-to-one association to Guest
 	@OneToOne(mappedBy="enduser")
@@ -81,28 +76,6 @@ public class Enduser implements Serializable {
 
 	public void setIsactive(Boolean isactive) {
 		this.isactive = isactive;
-	}
-
-	public List<ExpReservaion> getExpReservaions() {
-		return this.expReservaions;
-	}
-
-	public void setExpReservaions(List<ExpReservaion> expReservaions) {
-		this.expReservaions = expReservaions;
-	}
-
-	public ExpReservaion addExpReservaion(ExpReservaion expReservaion) {
-		getExpReservaions().add(expReservaion);
-		expReservaion.setEnduser(this);
-
-		return expReservaion;
-	}
-
-	public ExpReservaion removeExpReservaion(ExpReservaion expReservaion) {
-		getExpReservaions().remove(expReservaion);
-		expReservaion.setEnduser(null);
-
-		return expReservaion;
 	}
 
 	public Guest getGuest() {

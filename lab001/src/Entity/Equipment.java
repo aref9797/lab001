@@ -2,7 +2,6 @@ package Entity;
 
 import java.io.Serializable;
 import javax.persistence.*;
-import java.util.Date;
 import java.util.List;
 
 
@@ -29,8 +28,7 @@ public class Equipment implements Serializable {
 
 	private String photo;
 
-	@Temporal(TemporalType.DATE)
-	private Date pyear;
+	private String pyear;
 
 	//bi-directional many-to-one association to Laboratory
 	@ManyToOne
@@ -89,11 +87,11 @@ public class Equipment implements Serializable {
 		this.photo = photo;
 	}
 
-	public Date getPyear() {
+	public String getPyear() {
 		return this.pyear;
 	}
 
-	public void setPyear(Date pyear) {
+	public void setPyear(String pyear) {
 		this.pyear = pyear;
 	}
 

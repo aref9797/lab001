@@ -22,7 +22,6 @@ public class ChangePasswordMB extends baseManagedBean implements Serializable
 	 */
 	private static final long serialVersionUID = 1293401742964905605L;
 	
-	private String username;
 	private String oldPassword;
 	private String newPassword;
 	private String newPassword2;
@@ -34,17 +33,21 @@ public class ChangePasswordMB extends baseManagedBean implements Serializable
 	{
 		try
 		{
+			
 			if(newPassword.equals(oldPassword))
-				JSFHelper.addErrorMessage("رمز عبور جدید باید با رمز عبور قبلی متفاوت باشد.");
+				JSFHelper.addErrorMessage("رمز عبور جدید باید با رمز عبور قبلی متفاوت باشد");
 			
 			
 			if (!(newPassword.equals(newPassword2)))
-				JSFHelper.addErrorMessage("رمز عبور با تکرار رمز عبور تطابقت ندارد.");
+				JSFHelper.addErrorMessage("رمز عبور با تکرار رمز عبور تطابقت ندارد");
 			
 			else
 			{
-				aaaService.ChangePassword(username, oldPassword, newPassword);
-				JSFHelper.addInfoMessage("رمز عبور شما با موفقیت تغییر یافت.");
+				if(!(newPassword.equals(oldPassword)))
+				{
+					aaaService.ChangePassword(oldPassword, newPassword);
+					JSFHelper.addInfoMessage("رمز عبور شما با موفقیت تغییر یافت");
+				}
 			}
 			
 			return "ChangePassword";
@@ -68,16 +71,6 @@ public class ChangePasswordMB extends baseManagedBean implements Serializable
 	}
 
 	//========================================= Setter & Getter
-
-	public String getUsername()
-	{
-		return username;
-	}
-
-	public void setUsername(String username)
-	{
-		this.username = username;
-	}
 
 	public String getOldPassword()
 	{

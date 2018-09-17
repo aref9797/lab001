@@ -102,7 +102,7 @@ public class AAAServiceImpl extends baseUCServiceImpl<Aauser> implements AAAWebS
 	@SuppressWarnings("unchecked")
 	@Override
 	@Transactional
-	public void ChangePassword(String Username, String oldPassword, String newPassword) throws gException
+	public void ChangePassword(String oldPassword, String newPassword) throws gException
 	{
 		try
 		{
@@ -112,25 +112,21 @@ public class AAAServiceImpl extends baseUCServiceImpl<Aauser> implements AAAWebS
 		{
 			e.printStackTrace();
 		}
+		
+		Aasession aasession = em.find(Aasession.class, SessionManager.getSessionId());
+		String Username = aasession.getAauser().getUsername();
 
 		//Syntax Check
-		if (Username.length() <= 0 || Username.length() > 100 || oldPassword.length() <= 0 || oldPassword.length() > 100
-					|| newPassword.length() <= 0 || newPassword.length() > 100)
-			throw new gException("ابتدا نام کاربری یا کلمه عبور فعلی و جدید را کامل وارد نمایید.");
-
-
-		//Username of user itself
-		Aasession aasession = em.find(Aasession.class, SessionManager.getSessionId());
-		if (!(aasession.getAauser().getUsername().equals(Username)))
-			throw new gException("لطفا نام کاربری خودتان را وارد نمایید.");
-
+		if (oldPassword.length() <= 0 || oldPassword.length() > 100 || newPassword.length() <= 0 || newPassword.length() > 100)
+			throw new gException("ابتدا کلمه عبور فعلی و جدید را کامل وارد نمایید.");
+		
 
 		//Validation of Username and Password 
 		List<Aauser> users = (List<Aauser>) em.createNamedQuery("Aauser.findbyUserPass").setParameter("username", Username)
 					.setParameter("password", AAATools.getHashed(oldPassword)).getResultList();
 		
 		if (users.size() <= 0)
-			throw new gException("نام کاربری یا رمز عبور درست نیست.");
+			throw new gException("رمز عبور درست نیست");
 
 		//everything is OK
 		aasession.getAauser().setHpassword(AAATools.getHashed(newPassword));
@@ -153,7 +149,6 @@ public class AAAServiceImpl extends baseUCServiceImpl<Aauser> implements AAAWebS
 		aasession.getAauser().setEmail(profileUIModel.getEmail());
 		aasession.getAauser().setMobile(profileUIModel.getMobile());
 	}
-
 	
 	//===================================================================================ProfileUIModel
 
@@ -163,9 +158,12 @@ public class AAAServiceImpl extends baseUCServiceImpl<Aauser> implements AAAWebS
 	@Transactional
 	public ProfileUIModel getProfile()
 	{
+		
 		ProfileUIModel profileUIModel = new ProfileUIModel();
-
+		
 		Aasession aasession = em.find(Aasession.class, SessionManager.getSessionId());
+		
+		String date = gCal.GregorianToPersian(gCal.getCurrentDateTime().toString().substring(0, 10));
 			
 		profileUIModel.setName(aasession.getAauser().getName());
 		profileUIModel.setFamily(aasession.getAauser().getFamily());
@@ -174,6 +172,7 @@ public class AAAServiceImpl extends baseUCServiceImpl<Aauser> implements AAAWebS
 		profileUIModel.setUsername(aasession.getAauser().getUsername());
 		profileUIModel.setEmail(aasession.getAauser().getEmail());
 		profileUIModel.setStdcode(aasession.getAauser().getStdcode());
+		profileUIModel.setDate(date);
 		
 		List<Aasession> sessions = (List<Aasession>) em.createNamedQuery("Aasession.findlastlogin")
 					.setParameter("userId", aasession.getAauser().getId()).setParameter("onlinesessionID", aasession.getId())
@@ -184,15 +183,13 @@ public class AAAServiceImpl extends baseUCServiceImpl<Aauser> implements AAAWebS
 		else
 			profileUIModel.setLogincount(sessions.size() + "");
 		
-		if (sessions.size() > 0 && sessions.get(0).getLogoutdate() == null)
-			profileUIModel.setLastlogindate(sessions.get(0).getLogindate().toString());
+		//Convert to Persian
+		String time = gCal.GregorianToPersian(sessions.get(0).getLogindate().toString().substring(0, 10));
+		String time2 = sessions.get(0).getLogindate().toString().substring(11,19);
+		profileUIModel.setLastlogindate(time2 + "--" +time);
 		
-		else if(sessions.size() == 0)
-			profileUIModel.setLastlogindate("اولین ورود شما به سیستم");
-
 		return profileUIModel;
 	}
-
 
 	//======================================================================LostPassword
 	

@@ -38,7 +38,7 @@ public class Aapage implements Serializable {
 	private Aapagecat aapagecat;
 
 	//bi-directional many-to-one association to Aapagevisit
-	@OneToMany(mappedBy="aapage")
+	@OneToMany(mappedBy="aapage" , cascade = CascadeType.REMOVE)
 	private List<Aapagevisit> aapagevisits;
 
 	public Aapage() {

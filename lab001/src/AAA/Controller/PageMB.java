@@ -149,6 +149,4 @@ public class PageMB extends baseManagedBean implements Serializable
 		this.aapagecat = aapagecat;
 	}
 
-
-
 }

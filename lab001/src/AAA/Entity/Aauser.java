@@ -2,6 +2,9 @@ package AAA.Entity;
 
 import java.io.Serializable;
 import javax.persistence.*;
+
+import Entity.ExpReservaion;
+
 import java.util.List;
 
 
@@ -57,6 +60,10 @@ public class Aauser implements Serializable {
 	//bi-directional many-to-one association to Aasession
 	@OneToMany(mappedBy="aauser")
 	private List<Aasession> aasessions;
+	
+	//bi-directional many-to-one association to Aaaccesslist
+	@OneToMany(mappedBy="user" , cascade = CascadeType.ALL)
+	private List<ExpReservaion> expReservaions;
 
 	//bi-directional many-to-one association to Aarole
 	@ManyToOne

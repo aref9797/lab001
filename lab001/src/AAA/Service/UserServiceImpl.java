@@ -119,21 +119,23 @@ public class UserServiceImpl extends baseUCServiceImpl<Aauser> implements UserWe
 		return lo;
 	}
 	
-	@SuppressWarnings({ "unchecked"})
-	@Override
-	public List<Aauser> find_acceptprofessor() {
-		
-		List<Aauser> lo = (List<Aauser>) em.createQuery("from Aauser a where a.type = 'profesor' and a.isaccept = 'true' ").getResultList();
-		return lo;
-	}
+//	@SuppressWarnings({ "unchecked"})
+//	@Override
+//	public List<Aauser> find_acceptprofessor() {
+//		
+//		List<Aauser> lo = (List<Aauser>) em.createQuery("from Aauser a where a.type = 'profesor' and a.isaccept = 'true' ").getResultList();
+//		return lo;
+//	}
 	
 	
 	//===================================================================ProfessorCharge
 	
 	@SuppressWarnings("unchecked")
 	@Override
+	@Transactional
 	public List<Aauser> accept_professor() 
 	{
+		
 		List<Aauser> ch = (List<Aauser>) em.createQuery("from Aauser a where a.type = 'profesor' and a.isaccept = 'true' ").getResultList();
 		return ch;
 	}

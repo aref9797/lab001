@@ -10,7 +10,7 @@ public interface AAAWebService
 
 	public void Logout();
 
-	public void ChangePassword(String username, String oldPassword, String newPassword) throws gException;
+	public void ChangePassword(String oldPassword, String newPassword) throws gException;
 
 	public void ChangeProfile(ProfileUIModel profileUIModel);
 

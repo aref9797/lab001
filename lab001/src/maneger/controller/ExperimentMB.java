@@ -47,8 +47,7 @@ public class ExperimentMB extends baseManagedBeanController<Experiment> implemen
 	
 	@Autowired
 	private UserWebService useruc;
-	
-	
+		
 	//========================================================
 	
 	public List<Laboratory> lab_findAll()
@@ -75,7 +74,7 @@ public class ExperimentMB extends baseManagedBeanController<Experiment> implemen
 
 		
 		// new other Objects and set them into Base object
-		
+
 		
 		// refresh Lists
 		baseEntityList = expservice.FindAll("id", JPAOp.Asc);
@@ -102,9 +101,7 @@ public class ExperimentMB extends baseManagedBeanController<Experiment> implemen
 			else
 				result = expservice.Add(baseEntity);
 
-			ResetBaseObject();
-
-			
+			ResetBaseObject();			
 			
 			if (result.length() >= 1)
 				JSFHelper.addInfoMessage(result);

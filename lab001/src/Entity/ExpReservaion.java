@@ -3,6 +3,8 @@ package Entity;
 import java.io.Serializable;
 import javax.persistence.*;
 
+import AAA.Entity.Aauser;
+
 
 /**
  * The persistent class for the exp_reservaion database table.
@@ -18,10 +20,10 @@ public class ExpReservaion implements Serializable {
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Long id;
 
-	//bi-directional many-to-one association to Enduser
+	//bi-directional many-to-one association to Aauser
 	@ManyToOne
 	@JoinColumn(name="user_id")
-	private Enduser enduser;
+	private Aauser user;
 
 	//bi-directional many-to-one association to Experiment
 	@ManyToOne
@@ -52,12 +54,12 @@ public class ExpReservaion implements Serializable {
 		this.id = id;
 	}
 
-	public Enduser getEnduser() {
-		return this.enduser;
+	public Aauser getAauser() {
+		return this.user;
 	}
 
-	public void setEnduser(Enduser enduser) {
-		this.enduser = enduser;
+	public void setAauser(Aauser user) {
+		this.user = user;
 	}
 
 	public Experiment getExperiment() {

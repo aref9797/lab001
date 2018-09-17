@@ -31,7 +31,7 @@ public class SessionServiceImpl extends baseUCServiceImpl<Aasession> implements 
 	@Transactional
 	public List<Aasession> FindAllSessions(String username) throws gException, Exception
 	{
-		List<Aauser> userList = (List<Aauser>) em.createNamedQuery("Aauser.findbyUsername").setParameter("Username", username)
+		List<Aauser> userList = (List<Aauser>) em.createNamedQuery("Aauser.findbyUsername").setParameter("username", username)
 					.getResultList();
 
 		if (userList.size() <= 0)

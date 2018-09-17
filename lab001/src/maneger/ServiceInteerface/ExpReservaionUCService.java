@@ -6,5 +6,4 @@ import Entity.ExpReservaion;
 public interface ExpReservaionUCService extends baseUCService<ExpReservaion>
 {
 
-
 }

@@ -13,22 +13,22 @@ public class PageServiceImpl extends baseUCServiceImpl<Aapage> implements PageWe
 {
 	@Override
 	@Transactional
-	public String Add(Aapage entity) throws Exception, gException {
-		// TODO Auto-generated method stub
+	public String Add(Aapage entity) throws Exception, gException 
+	{
 		return super.Add(entity);
 	}
 	
 	@Override
 	@Transactional
-	public Aapage Edit(Aapage entity) throws Exception, gException {
-		// TODO Auto-generated method stub
+	public Aapage Edit(Aapage entity) throws Exception, gException 
+	{
 		return super.Edit(entity);
 	}
 	
 	@Override
 	@Transactional
-	public void Remove(Aapage entity) throws Exception, gException {
-		// TODO Auto-generated method stub
+	public void Remove(Aapage entity) throws Exception, gException 
+	{
 		super.Remove(entity);
 	}
 

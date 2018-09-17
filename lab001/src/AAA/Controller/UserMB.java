@@ -104,7 +104,7 @@ public class UserMB extends baseManagedBean implements Serializable
 	
 	public List<Aauser> AcceptProfessorCharge()
 	{
-		return userService.find_acceptprofessor();
+		return userService.accept_professor();
 	}
 	
 	public void ProfessorCharge(Aauser user , Integer charg)

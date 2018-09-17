@@ -42,6 +42,7 @@ public class EquipmentMB extends baseManagedBeanController<Equipment> implements
 	@Autowired
 	private LaboratoryUCService labuc;
 	
+	
 	public List<Laboratory> lab_findAll()
 	{
 		return labuc.FindAll("id", JPAOp.Asc);
@@ -55,7 +56,6 @@ public class EquipmentMB extends baseManagedBeanController<Equipment> implements
 		// new Base Object 
 		baseEntity = new Equipment();
 
-		
 		// new other Objects and set them into Base object
 		
 		
@@ -100,7 +100,6 @@ public class EquipmentMB extends baseManagedBeanController<Equipment> implements
 		}
 
 	}
-	
 	
 	
 	//Remove

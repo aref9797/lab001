@@ -1,4 +1,3 @@
-
 package  AAA.Controller;
 
 import java.io.IOException;
@@ -65,7 +64,7 @@ public class LoadPageMB extends baseManagedBean implements Serializable
 		// user does not access
 		SessionManager.Invalidate();
 		FacesContext.getCurrentInstance().getExternalContext()
-					.redirect(SessionManager.getRequest().getContextPath() + "/AAA/Login.xhtml");
+					.redirect(SessionManager.getRequest().getContextPath() + "/ui/AAA/Login.xhtml");
 		return;
 	}
 
@@ -102,7 +101,7 @@ public class LoadPageMB extends baseManagedBean implements Serializable
 		}
 		if (!(null == submenu))
 		{
-			DefaultMenuItem item = new DefaultMenuItem("");
+			DefaultMenuItem item = new DefaultMenuItem("خروج از سیستم");
 			//item.setIcon("ui-icon-home");
 			item.setCommand("#{LoginMB.Logout}");
 			item.setAjax(false);

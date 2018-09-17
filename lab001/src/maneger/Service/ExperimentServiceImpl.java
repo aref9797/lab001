@@ -37,7 +37,8 @@ public class ExperimentServiceImpl extends baseUCServiceImpl<Experiment> impleme
 		
 		if(entity.getPrice() <= 0)
 			throw new gException("قیمت آزمایش نمی تواند صفر یا کمتر از صفر باشد");
-
+		
+		
 		return super.Add(entity);
 	}
 

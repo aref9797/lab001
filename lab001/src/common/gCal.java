@@ -12,13 +12,13 @@ public class gCal
 		return new java.sql.Timestamp(new java.util.Date().getTime());
 	}
 	
-	//========================================= PersianToGregorian
+	//===============================================================================  PersianToGregorian
 	
 	public static String PersianToGregorian (String S) throws InstantiationException, IllegalAccessException
 	{
 		String A[]=new String[3];
 	    int B[]=new int[3];
-	    A=S.split("/");
+	    A=S.split("-");
 	    for(int i=0;i<A.length;i++)
  			 B[i]=Integer.parseInt(A[i]);
  		String w=ManamPersianDate.class.newInstance().PersianToGregorian(B[0], B[1], B[2]);
@@ -26,15 +26,25 @@ public class gCal
 	}
 
 	
-	//========================================= GregorianToPersian
-	public static String GregorianToPersian (String S) throws InstantiationException, IllegalAccessException
+	//===============================================================================  GregorianToPersian
+	
+	public static String GregorianToPersian (String S)
 	{
 		String A[]=new String[3];
 	    int B[]=new int[3];
-	    A=S.split("/");
+	    A=S.split("-");
 	    for(int i=0;i<A.length;i++)
  			 B[i]=Integer.parseInt(A[i]);
- 		String w=ManamPersianDate.class.newInstance().GregorianToPersian(B[0], B[1], B[2]);
+ 		String w = null;
+		try {
+			w = ManamPersianDate.class.newInstance().GregorianToPersian(B[0], B[1], B[2]);
+		} catch (InstantiationException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IllegalAccessException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		return w;
 	}
 

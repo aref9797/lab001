@@ -13,6 +13,7 @@ public class ProfileUIModel
 	private String password;
 	private String lastlogindate;
 	private String logincount;
+	private String date;
 	
 	
 	@Email (message="مقدار ایمیل را درست وارد نمایید")
@@ -118,6 +119,14 @@ public class ProfileUIModel
 
 	public void setLogincount(String logincount) {
 		this.logincount = logincount;
+	}
+
+	public String getDate() {
+		return date;
+	}
+
+	public void setDate(String date) {
+		this.date = date;
 	}
 	
 }
