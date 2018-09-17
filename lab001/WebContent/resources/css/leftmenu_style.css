@@ -1,11 +1,34 @@
+  @font-face {
+      font-family: Gandom;
+      src: url('http://fonts.codearena.ir/rastikerdar/gandom/gandom.eot');
+      src: url('http://fonts.codearena.ir/rastikerdar/gandom/gandom.eot?#iefix') format('embedded-opentype'),
+           url('http://fonts.codearena.ir/rastikerdar/gandom/gandom.woff') format('woff'),
+           url('http://fonts.codearena.ir/rastikerdar/gandom/gandom.ttf') format('truetype');
+      font-weight: normal;
+    }
+@font-face {
+      font-family: Mitra;
+      src: url('http://fonts.codearena.ir/b/mitra/mitra.eot');
+      src: url('http://fonts.codearena.ir/b/mitra/mitra.eot?#iefix') format('embedded-opentype'),
+           url('http://fonts.codearena.ir/b/mitra/mitra.woff') format('woff'),
+           url('http://fonts.codearena.ir/b/mitra/mitra.ttf') format('truetype');
+      font-weight: normal;
+    }
+
+  @font-face {
+      font-family: Parastoo;
+      src: url('http://fonts.codearena.ir/rastikerdar/parastoo/parastoo.eot');
+      src: url('http://fonts.codearena.ir/rastikerdar/parastoo/parastoo.eot?#iefix') format('embedded-opentype'),
+           url('http://fonts.codearena.ir/rastikerdar/parastoo/parastoo.woff') format('woff'),
+           url('http://fonts.codearena.ir/rastikerdar/parastoo/parastoo.ttf') format('truetype');
+      font-weight: normal;
+    }
 .ui-menu{
-	
 	background: rgb(208, 211, 220) !important;
 }
 .submenu{
 	background:#1B3764 !important;
-    border-radius:5px !important;  
-    
+    border-radius:5px !important;
    color: white !important;
 }
 .item{
@@ -14,21 +37,13 @@
 
 .ui-menuitem-text{
    float: right !important;
-   color: white !important;
+   color: #1B3764 !important;
+   font-family: Mitra !important;
+   font-size: 18px !important;
  }
 .ui-menu .ui-widget-header h3{
     float: right !important;
-    
+    font-family:btitr !important;
    color: white !important;
  }
  
-.ui-icon {
-float: right!important;
-color: white !important;
-}
-.fa { 
-        color: orange !important;
-    }
- .fa-caret-right{
- 	 color: green !important;
- }
