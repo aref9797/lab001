@@ -15,7 +15,7 @@
 	
 	 
 	<div id="scroll"> 
-	<h:form id="frmNew">
+	<h:form id="frmNew" enctype="multipart/form-data">
 	 <div class="row">
 	 	<div class="col-md-2"></div>
 	 	<div class="col-md-8">
@@ -55,12 +55,12 @@
 		 					<br/><br/>
 		 					<b>عکس :</b>
 		 					<br/>
-		 					<p:fileUpload value="#{upload.file}" mode="simple" skinSimple="true" auto="true"/> 
+		 					<p:fileUpload value="#{ExperimentMB.file}" mode="simple" skinSimple="true" /> 
 		 				</div>
 	 				</div>
 	 				<div class="row padding">
 						<div class="-col-md-12 text-center">
-							 <p:commandButton styleClass="ui-buttom-submit" value="ثبت "  update=":frmDT:dtList  frmNew" action="#{ExperimentMB.AddEdit()}" />
+							 <p:commandButton styleClass="ui-buttom-submit" type="submit" value="ثبت "  update=":frmDT:dtList  frmNew" actionListener="#{ExperimentMB.AddEdit()}" ajax="false" />
 		 				 </div>
 		 			</div>
 	 			</div>

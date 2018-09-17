@@ -24,7 +24,7 @@
 		 				<b>ایجاد تجهیزات</b>
 		 			</div>
 		 			<div class="contant">
-		 			<h:form>
+		 			<h:form enctype="multipart/form-data">
 		 				<div class="row">
 			 				<div class="col-md-6" >
 				 				<p:growl id="messages" showDetail="true" life="7000"/>
@@ -51,12 +51,12 @@
 			 					<br/><br/>
 			 					<b>عکس :</b>
 			 					<br/>
-			 					<p:fileUpload value="#{fileUploadView.file}" mode="simple" skinSimple="true" auto="true"/> 
+			 					<p:fileUpload value="#{EquipmentMB.file}" mode="simple" skinSimple="true" /> 
 								<br/><br/>
 			 				</div>
 			 				<div class="row text-center padding">
 			 						<div class="col-md-12">
-			 						 <p:commandButton styleClass="ui-buttom-submit" value="ثبت "  update=":frmDT:dtList  frmNew" action="#{EquipmentMB.AddEdit()}"/>
+			 						 <p:commandButton styleClass="ui-buttom-submit" ajax="false" value="ثبت " type="submit" update=":frmDT:dtList  frmNew" actionListener="#{EquipmentMB.AddEdit()}"/>
 			 							<!--  <p:commandButton styleClass="ui-buttom-submit" value="جدید"   />	 -->
 			 						 </div>
 			 					</div>

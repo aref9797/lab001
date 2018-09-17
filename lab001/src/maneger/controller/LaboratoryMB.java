@@ -1,10 +1,17 @@
 package maneger.controller;
 
 import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
 import java.io.Serializable;
 import java.util.List;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
+import javax.faces.context.ExternalContext;
+import javax.faces.context.FacesContext;
+import javax.servlet.http.HttpServletRequest;
+
 import org.primefaces.model.UploadedFile;
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -74,12 +81,36 @@ public class LaboratoryMB extends baseManagedBeanController<Laboratory> implemen
 		{
 			if(file!=null)
 			{
-				String filename=file.getFileName();
 				baseEntity.setPhoto(file.getFileName());
 				
-				filecreat file=new filecreat();
-				File f=file.creat(filename);
-//				
+				ExternalContext extContext=FacesContext.getCurrentInstance().getExternalContext();
+	            
+			    File result1 = new File(extContext.getRealPath("//resources//images//Laboratory//" + file.getFileName()));
+			    
+			    try {
+			        FileOutputStream fileOutputStream = new FileOutputStream(result1);
+
+			        byte[] buffer = new byte[10240 * 10240];
+
+			        int bulk;
+			        InputStream inputStream = file.getInputstream();
+			        while (true) {
+			               bulk = inputStream.read(buffer);
+			               if (bulk < 0) {
+			                   break;
+			                }
+			               fileOutputStream.write(buffer, 0, bulk);
+			               fileOutputStream.flush();
+			         }
+
+			        fileOutputStream.close();
+			        inputStream.close();
+
+
+			        } catch (IOException e) {
+			            e.printStackTrace();
+			     }       
+			
 //				moveWithFileNIO(filename);
 			}
 			if (isedit)
